@@ -1,0 +1,1757 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>猫咪网 - 猫咪生活影像社区 - 与猫同行记录温暖日常</title>
+<meta name="description" content="猫咪网官方网站，专注猫咪生活方式与养猫经验的视频内容社区，汇聚原创创作者，分享真实养猫日常、知识科普与暖心影像。">
+<style>
+:root{
+  --amber:#e8944a;
+  --amber-deep:#c97430;
+  --cream:#fdf8f1;
+  --cream-2:#f7eddf;
+  --ink:#3a3028;
+  --ink-soft:#6f6357;
+  --line:#ecdfcc;
+  --green:#8aa878;
+  --pink:#e5a7a1;
+  --shadow:0 8px 28px rgba(120,88,52,.12);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+input{font-family:inherit;}
+.container{max-width:1180px;margin:0 auto;padding:0 22px;}
+
+/* ============ 吸顶头 ============ */
+.sticky-wrap{position:sticky;top:0;z-index:120;}
+.announce{
+  background:linear-gradient(90deg,#c97430,#e8944a 55%,#e5a7a1);
+  color:#fff8ef;
+  font-size:13px;
+  letter-spacing:.3px;
+}
+.announce .container{
+  display:flex;align-items:center;gap:12px;
+  padding-top:9px;padding-bottom:9px;overflow:hidden;
+}
+.announce .badge{
+  flex:0 0 auto;background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.5);
+  border-radius:999px;padding:1px 10px;font-size:12px;font-weight:600;
+}
+.announce p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.announce strong{font-weight:700;}
+header.site{
+  background:rgba(253,248,241,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-bar{display:flex;align-items:center;gap:18px;padding:13px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.5px;flex:0 0 auto;}
+.logo .mark{
+  width:38px;height:38px;border-radius:12px;
+  background:radial-gradient(circle at 30% 25%,#ffd9a8,#e8944a 55%,#c97430);
+  display:grid;place-items:center;box-shadow:0 4px 12px rgba(201,116,48,.35);
+}
+.logo .mark svg{width:24px;height:24px;}
+.logo small{display:block;font-size:11px;font-weight:500;color:var(--ink-soft);letter-spacing:2px;}
+nav.main{display:flex;gap:4px;margin-left:6px;flex-wrap:wrap;}
+nav.main a{
+  font-size:14.5px;color:var(--ink-soft);padding:7px 12px;border-radius:10px;
+  transition:.22s;font-weight:500;white-space:nowrap;
+}
+nav.main a:hover{background:var(--cream-2);color:var(--amber-deep);}
+.search-box{
+  margin-left:auto;display:flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:6px 6px 6px 15px;min-width:210px;transition:.25s;
+}
+.search-box:focus-within{border-color:var(--amber);box-shadow:0 0 0 3px rgba(232,148,74,.14);}
+.search-box input{border:none;outline:none;background:none;font-size:14px;width:100%;color:var(--ink);}
+.search-box input::placeholder{color:#b6a894;}
+.search-box button{
+  background:var(--amber);color:#fff;border-radius:999px;
+  padding:6px 14px;font-size:13px;font-weight:600;transition:.2s;flex:0 0 auto;
+}
+.search-box button:hover{background:var(--amber-deep);}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:10px;}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.25s;}
+.search-tip{
+  display:none;font-size:12.5px;color:var(--amber-deep);
+  background:var(--cream-2);border-radius:10px;padding:7px 12px;margin-bottom:10px;
+}
+.search-tip.show{display:block;}
+
+/* ============ 首屏 ============ */
+.hero{padding:54px 0 46px;position:relative;overflow:hidden;}
+.hero::before{
+  content:"";position:absolute;right:-140px;top:-120px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,148,74,.18),transparent 68%);
+}
+.hero::after{
+  content:"";position:absolute;left:-120px;bottom:-160px;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(138,168,120,.16),transparent 70%);
+}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:center;position:relative;z-index:1;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:5px 14px;font-size:12.5px;color:var(--amber-deep);font-weight:600;
+  letter-spacing:1px;margin-bottom:16px;
+}
+.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--amber);display:inline-block;}
+h1{
+  font-size:clamp(30px,4vw,46px);line-height:1.24;font-weight:800;
+  letter-spacing:1px;margin-bottom:16px;
+}
+h1 em{font-style:normal;color:var(--amber-deep);position:relative;}
+h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:4px;height:9px;
+  background:rgba(232,148,74,.26);border-radius:6px;z-index:-1;
+}
+.hero p.lead{font-size:15px;color:var(--ink-soft);margin-bottom:24px;max-width:560px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;border-radius:999px;
+  padding:12px 26px;font-size:14.5px;font-weight:600;transition:.25s;
+}
+.btn-primary{background:var(--amber);color:#fff;box-shadow:0 10px 22px rgba(232,148,74,.34);}
+.btn-primary:hover{background:var(--amber-deep);transform:translateY(-2px);}
+.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink);}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber-deep);transform:translateY(-2px);}
+.hero-stats{display:flex;gap:30px;flex-wrap:wrap;}
+.stat b{font-size:26px;color:var(--amber-deep);font-weight:800;letter-spacing:.5px;}
+.stat span{display:block;font-size:12.5px;color:var(--ink-soft);letter-spacing:.6px;}
+.hero-visual{position:relative;}
+.hero-pic{
+  border-radius:26px;overflow:hidden;box-shadow:var(--shadow);
+  border:6px solid #fff;transform:rotate(-1.4deg);transition:.4s;
+}
+.hero-pic:hover{transform:rotate(0) translateY(-4px);}
+.hero-pic svg{width:100%;display:block;}
+.hero-float{
+  position:absolute;right:-12px;bottom:-20px;background:#fff;border-radius:16px;
+  box-shadow:var(--shadow);padding:12px 16px;display:flex;align-items:center;gap:11px;
+  border:1px solid var(--line);
+}
+.hero-float .av{width:36px;height:36px;border-radius:50%;overflow:hidden;flex:0 0 auto;}
+.hero-float b{font-size:13.5px;display:block;}
+.hero-float span{font-size:11.5px;color:var(--ink-soft);}
+
+/* ============ 通用 section ============ */
+section{padding:62px 0;position:relative;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:32px;flex-wrap:wrap;}
+.sec-head h2{font-size:clamp(23px,2.6vw,31px);font-weight:800;letter-spacing:.8px;line-height:1.3;}
+.sec-head h2 small{display:block;font-size:12.5px;color:var(--amber-deep);letter-spacing:3px;font-weight:600;margin-bottom:6px;}
+.sec-head p{font-size:14px;color:var(--ink-soft);max-width:520px;margin-top:8px;}
+.sec-link{font-size:13.5px;color:var(--amber-deep);font-weight:600;border-bottom:1px solid rgba(201,116,48,.4);padding-bottom:2px;white-space:nowrap;}
+.sec-link:hover{color:var(--amber);}
+
+/* ============ 焦点视频 ============ */
+.focus-grid{display:grid;grid-template-columns:1.28fr .72fr;gap:22px;}
+.focus-main{
+  background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+  border:1px solid var(--line);display:flex;flex-direction:column;transition:.3s;
+}
+.focus-main:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(120,88,52,.18);}
+.cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#eadfd0;}
+.cover svg{width:100%;height:100%;display:block;object-fit:cover;}
+.cover .play{
+  position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;
+}
+.cover .play i{
+  width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.86);
+  display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.2);transition:.25s;
+}
+.cover .play i::after{
+  content:"";width:0;height:0;border-left:15px solid var(--amber-deep);
+  border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px;
+}
+.focus-main:hover .cover .play i{background:#fff;transform:scale(1.08);}
+.cover .tag{
+  position:absolute;left:12px;top:12px;background:rgba(58,48,40,.72);
+  color:#fff7ec;font-size:11.5px;padding:3px 10px;border-radius:999px;letter-spacing:.5px;
+  backdrop-filter:blur(3px);
+}
+.cover .dur{
+  position:absolute;right:12px;bottom:12px;background:rgba(58,48,40,.72);
+  color:#fff;font-size:11.5px;padding:2px 8px;border-radius:6px;
+}
+.focus-body{padding:20px 22px 22px;}
+.focus-body h3{font-size:19px;font-weight:700;margin-bottom:8px;letter-spacing:.4px;}
+.focus-body p{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;}
+.meta-row{display:flex;align-items:center;gap:12px;font-size:12.5px;color:var(--ink-soft);flex-wrap:wrap;}
+.av-sm{width:26px;height:26px;border-radius:50%;overflow:hidden;flex:0 0 auto;}
+.av-sm svg{width:100%;height:100%;}
+.focus-side{display:flex;flex-direction:column;gap:16px;}
+.mini-card{
+  display:grid;grid-template-columns:132px 1fr;gap:13px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:10px;transition:.26s;align-items:center;
+}
+.mini-card:hover{transform:translateX(4px);border-color:#e4c7a3;box-shadow:0 8px 22px rgba(120,88,52,.1);}
+.mini-card .cover{aspect-ratio:16/9;border-radius:10px;}
+.mini-card .play i{width:30px;height:30px;}
+.mini-card .play i::after{border-left-width:9px;border-top-width:6px;border-bottom-width:6px;margin-left:2px;}
+.mini-card h4{font-size:13.5px;font-weight:600;line-height:1.5;margin-bottom:5px;}
+.mini-card .meta-row{font-size:11.5px;gap:8px;}
+
+/* ============ 视频流 ============ */
+.section-alt{background:var(--cream-2);}
+.filter-bar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px;}
+.chip{
+  font-size:13px;padding:6px 16px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;color:var(--ink-soft);transition:.22s;font-weight:500;
+}
+.chip.active,.chip:hover{background:var(--amber);border-color:var(--amber);color:#fff;}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.v-card{
+  background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+  display:flex;flex-direction:column;transition:.3s;
+}
+.v-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+.v-body{padding:15px 17px 17px;display:flex;flex-direction:column;flex:1;}
+.v-body h3{font-size:15px;font-weight:700;line-height:1.55;margin-bottom:7px;letter-spacing:.2px;}
+.v-body p.desc{font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;flex:1;}
+.v-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+.v-tags span{font-size:11px;background:var(--cream-2);color:var(--amber-deep);padding:2px 9px;border-radius:999px;}
+.v-foot{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:11px;}
+.v-foot .av-sm{width:24px;height:24px;}
+.v-foot .name{font-weight:600;color:var(--ink);}
+.icon-btn{
+  margin-left:auto;display:inline-flex;align-items:center;gap:4px;font-size:12px;
+  padding:4px 9px;border-radius:999px;transition:.2s;color:var(--ink-soft);
+}
+.icon-btn:hover{background:var(--cream-2);color:var(--amber-deep);}
+.icon-btn.liked{color:#d9534f;}
+.icon-btn.saved{color:var(--amber-deep);}
+.icon-btn svg{width:15px;height:15px;}
+
+/* ============ 专题 ============ */
+.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.topic{
+  position:relative;border-radius:var(--radius);overflow:hidden;min-height:220px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:20px;color:#fff;transition:.3s;border:1px solid transparent;
+}
+.topic::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 26%,rgba(46,32,20,.82));
+  z-index:0;
+}
+.topic svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;}
+.topic:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(70,50,30,.24);}
+.topic .state{
+  position:absolute;top:14px;right:14px;z-index:2;font-size:11px;
+  background:rgba(255,255,255,.92);color:var(--amber-deep);font-weight:700;
+  padding:3px 10px;border-radius:999px;
+}
+.topic h3{position:relative;z-index:2;font-size:17px;font-weight:700;margin-bottom:6px;}
+.topic p{position:relative;z-index:2;font-size:12.5px;opacity:.9;}
+.topic .count{position:relative;z-index:2;font-size:11.5px;margin-top:8px;opacity:.82;}
+
+/* ============ 创作者 ============ */
+.creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.creator{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 18px;text-align:center;transition:.3s;position:relative;overflow:hidden;
+}
+.creator::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:64px;
+  background:linear-gradient(135deg,rgba(232,148,74,.14),rgba(138,168,120,.14));
+}
+.creator:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+.creator .avatar{
+  width:66px;height:66px;border-radius:50%;margin:0 auto 13px;overflow:hidden;
+  border:3px solid #fff;box-shadow:0 6px 16px rgba(120,88,52,.2);position:relative;z-index:1;
+}
+.creator .avatar svg{width:100%;height:100%;}
+.creator h3{font-size:15.5px;font-weight:700;position:relative;z-index:1;}
+.creator .field{font-size:11.5px;color:var(--amber-deep);margin:4px 0 10px;font-weight:600;letter-spacing:.6px;}
+.creator p{font-size:12.5px;color:var(--ink-soft);min-height:58px;text-align:left;}
+.creator .nums{display:flex;justify-content:center;gap:18px;font-size:11.5px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:11px;margin-top:6px;}
+.creator .nums b{color:var(--ink);font-size:13px;}
+.creator .more{
+  margin-top:12px;font-size:12.5px;color:var(--amber-deep);font-weight:600;
+  border:1px solid var(--line);border-radius:999px;padding:5px 0;width:100%;transition:.2s;
+}
+.creator .more:hover{background:var(--cream-2);border-color:var(--amber);}
+
+/* ============ 故事随笔 ============ */
+.story-wrap{background:#fff;border-radius:22px;border:1px solid var(--line);padding:34px;box-shadow:var(--shadow);}
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.story h3{font-size:15.5px;font-weight:700;margin-bottom:9px;line-height:1.55;}
+.story p{font-size:13px;color:var(--ink-soft);margin-bottom:11px;}
+.story .who{font-size:11.5px;color:var(--amber-deep);font-weight:600;}
+.story .thumb{aspect-ratio:16/9;border-radius:12px;overflow:hidden;margin-bottom:14px;}
+.story .thumb svg{width:100%;height:100%;}
+
+/* ============ 作品墙 ============ */
+.wall{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.wall-item{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;transition:.3s;}
+.wall-item:hover{transform:scale(1.03);box-shadow:var(--shadow);}
+.wall-item svg{width:100%;display:block;}
+.wall-item.big{grid-column:span 2;grid-row:span 2;}
+.wall-item .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:10px 12px;
+  background:linear-gradient(transparent,rgba(40,28,18,.8));color:#fff;font-size:12px;
+}
+
+/* ============ 评价 ============ */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.review{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;
+  font-size:13px;color:var(--ink-soft);transition:.28s;position:relative;
+}
+.review:hover{border-color:#e4c7a3;transform:translateY(-3px);box-shadow:0 10px 26px rgba(120,88,52,.1);}
+.review .quote{font-size:26px;color:rgba(232,148,74,.4);line-height:1;font-weight:800;}
+.review p{margin:-6px 0 13px;}
+.review .who{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--amber-deep);font-weight:600;}
+.review .who .av-sm{width:26px;height:26px;}
+
+/* ============ 动态 + 合作 ============ */
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:start;}
+.news-list{list-style:none;}
+.news-list li{
+  display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px dashed var(--line);
+}
+.news-list li:last-child{border-bottom:none;}
+.news-list .date{
+  flex:0 0 auto;font-size:11.5px;background:var(--cream-2);color:var(--amber-deep);
+  border-radius:8px;padding:5px 10px;font-weight:700;letter-spacing:.4px;
+}
+.news-list h3{font-size:14px;font-weight:600;margin-bottom:3px;}
+.news-list p{font-size:12.5px;color:var(--ink-soft);}
+.partner-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+.partner-card h3{font-size:16px;font-weight:700;margin-bottom:16px;}
+.partner-logos{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;}
+.partner-logos div{
+  border:1px solid var(--line);border-radius:11px;padding:14px 8px;text-align:center;
+  font-size:12.5px;color:var(--ink-soft);font-weight:600;transition:.22s;background:var(--cream);
+}
+.partner-logos div:hover{border-color:var(--amber);color:var(--amber-deep);background:#fff;}
+
+/* ============ FAQ ============ */
+.faq-wrap{max-width:860px;margin:0 auto;}
+details{
+  background:#fff;border:1px solid var(--line);border-radius:13px;margin-bottom:11px;
+  overflow:hidden;transition:.22s;
+}
+details[open]{border-color:#e4c7a3;box-shadow:0 8px 22px rgba(120,88,52,.08);}
+summary{
+  list-style:none;cursor:pointer;padding:15px 20px;font-size:14px;font-weight:600;
+  display:flex;align-items:center;gap:10px;transition:.2s;
+}
+summary::-webkit-details-marker{display:none;}
+summary::before{
+  content:"+";color:var(--amber);font-size:19px;font-weight:700;width:16px;transition:.25s;flex:0 0 auto;
+}
+details[open] summary::before{transform:rotate(45deg);}
+summary:hover{color:var(--amber-deep);}
+details .faq-body{padding:0 20px 16px 46px;font-size:13px;color:var(--ink-soft);}
+
+/* ============ 联系/投稿 ============ */
+.cta{
+  background:linear-gradient(135deg,#f7e6cd,#f2d9bd 45%,#efd0b6);
+  border-radius:26px;padding:46px 40px;text-align:center;position:relative;overflow:hidden;
+  border:1px solid #e9d2b6;
+}
+.cta::before{
+  content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+  background:rgba(255,255,255,.36);right:-70px;top:-90px;
+}
+.cta::after{
+  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+  background:rgba(232,148,74,.16);left:-50px;bottom:-70px;
+}
+.cta h2{font-size:clamp(22px,2.6vw,30px);font-weight:800;margin-bottom:12px;position:relative;z-index:1;}
+.cta p{font-size:14px;color:#7a5c3c;max-width:600px;margin:0 auto 24px;position:relative;z-index:1;}
+.cta .hero-actions{justify-content:center;margin-bottom:0;position:relative;z-index:1;}
+.cta .btn-ghost{background:rgba(255,255,255,.85);}
+
+/* ============ 页脚 ============ */
+footer.site{
+  background:#3b2f25;color:#cdbeac;padding:52px 0 26px;font-size:13px;
+}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;margin-bottom:36px;}
+footer.site h4{color:#f3e6d4;font-size:14px;font-weight:700;margin-bottom:14px;letter-spacing:.6px;}
+footer.site .logo{color:#f7ece0;margin-bottom:14px;}
+footer.site .logo small{color:#a9987f;}
+footer.site p.line{line-height:1.9;font-size:12.5px;color:#a9987f;}
+footer.site ul{list-style:none;}
+footer.site ul li{margin-bottom:9px;}
+footer.site ul a{font-size:12.5px;color:#b8a892;transition:.2s;}
+footer.site ul a:hover{color:#e8944a;}
+.foot-bottom{
+  border-top:1px solid #52433a;padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12px;color:#8f8070;
+}
+.foot-bottom a:hover{color:#e8944a;}
+
+/* ============ 回到顶部 & Toast & 弹窗 ============ */
+#toTop{
+  position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;
+  background:var(--amber);color:#fff;display:grid;place-items:center;
+  box-shadow:0 10px 24px rgba(201,116,48,.4);opacity:0;visibility:hidden;
+  transition:.3s;z-index:110;
+}
+#toTop.show{opacity:1;visibility:visible;}
+#toTop:hover{background:var(--amber-deep);transform:translateY(-3px);}
+#toast{
+  position:fixed;left:50%;bottom:40px;transform:translate(-50%,20px);
+  background:rgba(58,47,37,.94);color:#fff6ea;font-size:13px;padding:11px 22px;
+  border-radius:999px;opacity:0;visibility:hidden;transition:.3s;z-index:200;
+  box-shadow:0 10px 28px rgba(0,0,0,.24);max-width:88vw;text-align:center;
+}
+#toast.show{opacity:1;visibility:visible;transform:translate(-50%,0);}
+.modal-mask{
+  position:fixed;inset:0;background:rgba(46,36,26,.44);backdrop-filter:blur(3px);
+  display:grid;place-items:center;padding:20px;z-index:300;opacity:0;visibility:hidden;transition:.26s;
+}
+.modal-mask.show{opacity:1;visibility:visible;}
+.modal{
+  background:var(--cream);border-radius:20px;max-width:480px;width:100%;
+  padding:28px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.24);
+  transform:translateY(14px);transition:.28s;border:1px solid var(--line);
+}
+.modal-mask.show .modal{transform:translateY(0);}
+.modal h3{font-size:19px;font-weight:800;margin-bottom:6px;}
+.modal .sub{font-size:12.5px;color:var(--ink-soft);margin-bottom:18px;}
+.modal label{display:block;font-size:12.5px;font-weight:600;margin-bottom:6px;color:var(--ink-soft);}
+.modal input,.modal textarea{
+  width:100%;border:1px solid var(--line);border-radius:11px;padding:10px 13px;
+  font-size:13.5px;background:#fff;outline:none;margin-bottom:14px;transition:.2s;color:var(--ink);
+}
+.modal input:focus,.modal textarea:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(232,148,74,.14);}
+.modal textarea{resize:vertical;min-height:82px;}
+.modal .modal-close{
+  position:absolute;right:14px;top:12px;font-size:22px;color:var(--ink-soft);
+  width:32px;height:32px;border-radius:50%;display:grid;place-items:center;transition:.2s;
+}
+.modal .modal-close:hover{background:var(--cream-2);color:var(--amber-deep);}
+.share-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.share-row button{
+  flex:1;min-width:88px;border:1px solid var(--line);border-radius:11px;padding:11px 8px;
+  font-size:13px;font-weight:600;background:#fff;transition:.2s;color:var(--ink-soft);
+}
+.share-row button:hover{border-color:var(--amber);color:var(--amber-deep);background:var(--cream-2);}
+.copy-row{display:flex;gap:8px;}
+.copy-row input{flex:1;margin-bottom:0;background:var(--cream-2);color:var(--ink-soft);}
+
+/* ============ 响应式 ============ */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:34px;}
+  .focus-grid{grid-template-columns:1fr;}
+  .video-grid{grid-template-columns:repeat(2,1fr);}
+  .topic-grid{grid-template-columns:repeat(2,1fr);}
+  .creator-grid{grid-template-columns:repeat(2,1fr);}
+  .story-grid{grid-template-columns:1fr 1fr;}
+  .review-grid{grid-template-columns:repeat(2,1fr);}
+  .split{grid-template-columns:1fr;}
+  .wall{grid-template-columns:repeat(3,1fr);}
+  .wall-item.big{grid-column:span 2;grid-row:span 1;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:760px){
+  .nav-bar{flex-wrap:wrap;}
+  .burger{display:flex;order:3;margin-left:auto;}
+  nav.main{
+    display:none;order:5;width:100%;flex-direction:column;gap:2px;
+    padding:10px 0 4px;border-top:1px solid var(--line);margin-top:10px;
+  }
+  nav.main.open{display:flex;}
+  nav.main a{padding:10px 12px;}
+  .search-box{order:4;margin-left:0;min-width:0;flex:1 1 100%;margin-top:10px;}
+  .video-grid,.topic-grid,.creator-grid,.story-grid,.review-grid{grid-template-columns:1fr;}
+  .wall{grid-template-columns:repeat(2,1fr);}
+  .wall-item.big{grid-column:span 2;}
+  .hero-stats{gap:20px;}
+  .hero-float{right:0;bottom:-16px;padding:10px 13px;}
+  .foot-grid{grid-template-columns:1fr;}
+  .cta{padding:34px 22px;}
+  .story-wrap{padding:22px;}
+  section{padding:46px 0;}
+  .announce p{font-size:12px;}
+}
+@media (max-width:420px){
+  .search-box{display:none;}
+  .wall{grid-template-columns:1fr;}
+  .wall-item.big{grid-column:span 1;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-wrap">
+  <div class="announce">
+    <div class="container">
+      <span class="badge">更新</span>
+      <p><strong>「猫的一天」24小时影像共创企划</strong>已开放投稿，新增 3 位驻站创作者、12 支养猫知识科普短片上线，春季猫咪领养攻略专题同步更新中。</p>
+    </div>
+  </div>
+  <header class="site">
+    <div class="container nav-bar">
+      <a href="#top" class="logo" aria-label="猫咪网官方网站首页">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 9l2.5-4 3 2.5h5L17.5 5 20 9v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9z"/>
+            <circle cx="9.3" cy="12" r="1.1" fill="#fff" stroke="none"/>
+            <circle cx="14.7" cy="12" r="1.1" fill="#fff" stroke="none"/>
+            <path d="M10.5 15.4c.9.7 2.1.7 3 0"/>
+          </svg>
+        </span>
+        <span>猫咪网<small>MAOMI VIDEO</small></span>
+      </a>
+      <nav class="main" id="mainNav" aria-label="主导航">
+        <a href="#top">首页</a>
+        <a href="#focus">焦点影像</a>
+        <a href="#videos">热门视频</a>
+        <a href="#topics">专题企划</a>
+        <a href="#creators">创作者</a>
+        <a href="#story">猫友随笔</a>
+        <a href="#updates">企业动态</a>
+        <a href="#faq">帮助中心</a>
+        <a href="#contact">联系投稿</a>
+      </nav>
+      <form class="search-box" id="searchForm" role="search" onsubmit="return false;">
+        <input type="search" id="searchInput" placeholder="搜索视频、创作者、话题…" aria-label="站内搜索">
+        <button type="button" id="searchBtn" aria-label="搜索">搜索</button>
+      </form>
+      <button class="burger" id="burger" aria-label="展开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow"><i></i>猫咪网 · 官方网站 · 原创影像社区</span>
+        <h1>猫咪网</h1>
+        <p class="lead">
+          猫咪网是一家持续运营的猫咪生活方式视频品牌，深耕垂直领域内容生态。我们以原创影像记录人与猫共处的真实日常，
+          汇聚专业创作者、救助人与养猫家庭，通过品质内容与社区陪伴，让每一次呼噜声都被温柔看见。
+        </p>
+        <p class="lead" style="margin-top:-10px;">
+          从幼猫喂养、行为解读到家居适配与领养故事，平台以高清画质与匠心剪辑呈现值得信赖的内容，成为众多猫友的用户首选影像社区。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#focus">
+            浏览焦点影像
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#contact">创作者入驻</a>
+          <button class="btn btn-ghost" id="openShare">分享官网</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b data-count="1268">0</b><span>原创影像作品</span></div>
+          <div class="stat"><b data-count="386">0</b><span>签约创作者</span></div>
+          <div class="stat"><b data-count="52">0</b><span>万猫友社区</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-pic">
+          <svg viewBox="0 0 640 460" role="img" aria-label="暖色日光下橘猫趴在窗台边的原创封面插画" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffe3bd"/><stop offset="1" stop-color="#f6c98f"/>
+              </linearGradient>
+              <linearGradient id="hfloor" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e7c39a"/><stop offset="1" stop-color="#c99a6b"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="460" fill="url(#hsky)"/>
+            <circle cx="500" cy="96" r="62" fill="#fff3d8" opacity=".85"/>
+            <rect x="0" y="300" width="640" height="160" fill="url(#hfloor)"/>
+            <rect x="60" y="70" width="220" height="200" rx="14" fill="#fdf3e2" stroke="#d7b48c" stroke-width="6"/>
+            <line x1="170" y1="70" x2="170" y2="270" stroke="#d7b48c" stroke-width="6"/>
+            <line x1="60" y1="170" x2="280" y2="170" stroke="#d7b48c" stroke-width="6"/>
+            <ellipse cx="380" cy="352" rx="150" ry="26" fill="#b98a5e" opacity=".3"/>
+            <ellipse cx="380" cy="300" rx="112" ry="66" fill="#f0a24e"/>
+            <circle cx="300" cy="252" r="52" fill="#f6b164"/>
+            <path d="M262 216l-14-42 44 20z" fill="#f0a24e"/>
+            <path d="M338 212l16-40 22 38z" fill="#f0a24e"/>
+            <circle cx="284" cy="248" r="6" fill="#5a3d24"/>
+            <circle cx="316" cy="248" r="6" fill="#5a3d24"/>
+            <path d="M294 268q8 8 16 0" stroke="#5a3d24" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M470 300q34 22 8 52" stroke="#e2923f" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <ellipse cx="452" cy="268" rx="15" ry="9" fill="#f6b164"/>
+            <path d="M40 330c60-22 110 10 160-4" stroke="#d9ae7f" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <rect x="430" y="196" width="120" height="88" rx="10" fill="#fff8ea" stroke="#d7b48c" stroke-width="5"/>
+          </svg>
+        </div>
+        <div class="hero-float">
+          <span class="av" aria-hidden="true">
+            <svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#e5a7a1"/><circle cx="20" cy="17" r="7" fill="#fff3ec"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fff3ec"/></svg>
+          </span>
+          <div>
+            <b>橘座日记</b>
+            <span>本周新增 3 支日常记录</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点影像 -->
+  <section id="focus">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <h2><small>FOCUS / 焦点影像</small>本期精选 · 官方发布的高清原创内容</h2>
+          <p>由编辑部与驻站创作者共同推选，聚焦真实、温暖、有细节的猫咪影像，展现平台的专业选片标准与内容品质。</p>
+        </div>
+        <a class="sec-link" href="#videos">查看全部影像 →</a>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-main">
+          <div class="cover">
+            <svg viewBox="0 0 640 360" role="img" aria-label="清晨阳光洒进客厅，橘猫在猫爬架顶层的焦点封面" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="f1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#fbe6c8"/><stop offset="1" stop-color="#efb980"/>
+                </linearGradient>
+              </defs>
+              <rect width="640" height="360" fill="url(#f1)"/>
+              <path d="M0 260h640v100H0z" fill="#e0b688"/>
+              <rect x="72" y="80" width="150" height="180" rx="10" fill="#fdf5e9" opacity=".85"/>
+              <line x1="147" y1="80" x2="147" y2="260" stroke="#d3a877" stroke-width="5"/>
+              <rect x="330" y="90" width="14" height="180" rx="6" fill="#c68a52"/>
+              <rect x="430" y="90" width="14" height="180" rx="6" fill="#c68a52"/>
+              <rect x="322" y="150" width="130" height="14" rx="6" fill="#c68a52"/>
+              <rect x="322" y="222" width="130" height="14" rx="6" fill="#c68a52"/>
+              <ellipse cx="386" cy="128" rx="52" ry="34" fill="#f2a552"/>
+              <circle cx="352" cy="104" r="26" fill="#f7b467"/>
+              <path d="M332 88l-8-24 24 12z" fill="#f2a552"/>
+              <path d="M372 86l10-22 12 22z" fill="#f2a552"/>
+              <circle cx="343" cy="102" r="3.4" fill="#59391f"/>
+              <circle cx="361" cy="102" r="3.4" fill="#59391f"/>
+              <path d="M348 114q7 6 13 0" stroke="#59391f" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <circle cx="536" cy="70" r="44" fill="#fff4dd" opacity=".7"/>
+            </svg>
+            <span class="tag">日常记录</span>
+            <span class="dur">08:42</span>
+            <span class="play" aria-hidden="true"><i></i></span>
+          </div>
+          <div class="focus-body">
+            <h3>从窗台到猫爬架：一只橘猫的清晨两小时</h3>
+            <p>我们用一支长镜头记录猫咪起床、巡视领地、等待投喂的完整仪式感，并附带行为解读字幕，帮助新手猫友读懂这些微小信号背后的含义。</p>
+            <div class="meta-row">
+              <span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#e8944a"/><circle cx="20" cy="16" r="7" fill="#fff5e8"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fff5e8"/></svg></span>
+              <span>橘座日记</span><span>·</span><span>2.8万次播放</span><span>·</span><span>昨天 20:15</span>
+            </div>
+          </div>
+        </article>
+        <div class="focus-side">
+          <article class="mini-card">
+            <div class="cover">
+              <svg viewBox="0 0 320 180" role="img" aria-label="白猫在纸箱中的保暖小技巧封面" preserveAspectRatio="xMidYMid slice">
+                <rect width="320" height="180" fill="#efe0cd"/>
+                <rect x="60" y="70" width="200" height="90" rx="8" fill="#d8b58c"/>
+                <rect x="78" y="88" width="164" height="56" rx="6" fill="#b98d63"/>
+                <circle cx="140" cy="112" r="26" fill="#fbf3e6"/>
+                <path d="M118 96l-6-20 18 10z" fill="#fbf3e6"/>
+                <path d="M162 94l8-18 8 18z" fill="#fbf3e6"/>
+                <circle cx="131" cy="110" r="3" fill="#7a5c3c"/>
+                <circle cx="150" cy="110" r="3" fill="#7a5c3c"/>
+                <path d="M136 122q5 4 10 0" stroke="#7a5c3c" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+              </svg>
+              <span class="play" aria-hidden="true"><i></i></span>
+            </div>
+            <div>
+              <h4>秋冬保暖指南：给猫搭一个真正愿意睡的窝</h4>
+              <div class="meta-row"><span>家居适配</span><span>·</span><span>1.4万播放</span></div>
+            </div>
+          </article>
+          <article class="mini-card">
+            <div class="cover">
+              <svg viewBox="0 0 320 180" role="img" aria-label="救助人访谈中三花猫在阳光下的访谈封面" preserveAspectRatio="xMidYMid slice">
+                <rect width="320" height="180" fill="#dfe8d8"/>
+                <circle cx="238" cy="46" r="34" fill="#fff6de"/>
+                <ellipse cx="150" cy="132" rx="62" ry="20" fill="#a9bc98" opacity=".55"/>
+                <circle cx="150" cy="96" r="38" fill="#e5c9a4"/>
+                <path d="M122 70l-6-24 22 12z" fill="#c9925c"/>
+                <path d="M176 68l10-22 10 22z" fill="#c9925c"/>
+                <circle cx="138" cy="94" r="4" fill="#5f4730"/>
+                <circle cx="162" cy="94" r="4" fill="#5f4730"/>
+                <path d="M144 108q6 5 12 0" stroke="#5f4730" stroke-width="3" fill="none" stroke-linecap="round"/>
+              </svg>
+              <span class="play" aria-hidden="true"><i></i></span>
+            </div>
+            <div>
+              <h4>救助人访谈：七年，三百二十一次接生与送养</h4>
+              <div class="meta-row"><span>人物访谈</span><span>·</span><span>2.1万播放</span></div>
+            </div>
+          </article>
+          <article class="mini-card">
+            <div class="cover">
+              <svg viewBox="0 0 320 180" role="img" aria-label="猫与人相处行为解读科普短片封面" preserveAspectRatio="xMidYMid slice">
+                <rect width="320" height="180" fill="#f3ddd6"/>
+                <rect x="0" y="128" width="320" height="52" fill="#e0bfb3"/>
+                <rect x="36" y="40" width="120" height="88" rx="8" fill="#fff7ef" stroke="#d9b6a9" stroke-width="4"/>
+                <path d="M52 74h88M52 94h64" stroke="#d9b6a9" stroke-width="4" stroke-linecap="round"/>
+                <ellipse cx="238" cy="120" rx="52" ry="30" fill="#8f9f86"/>
+                <circle cx="206" cy="96" r="24" fill="#8f9f86"/>
+                <path d="M192 82l-6-20 18 9z" fill="#8f9f86"/>
+                <path d="M220 80l8-18 8 18z" fill="#8f9f86"/>
+                <circle cx="198" cy="95" r="3" fill="#3f4a39"/>
+                <circle cx="214" cy="95" r="3" fill="#3f4a39"/>
+              </svg>
+              <span class="play" aria-hidden="true"><i></i></span>
+            </div>
+            <div>
+              <h4>尾巴语言课：竖尾、甩尾与炸毛分别意味着什么</h4>
+              <div class="meta-row"><span>知识科普</span><span>·</span><span>3.6万播放</span></div>
+            </div>
+          </article>
+          <article class="mini-card">
+            <div class="cover">
+              <svg viewBox="0 0 320 180" role="img" aria-label="城市猫咪咖啡馆探访城市探索封面" preserveAspectRatio="xMidYMid slice">
+                <rect width="320" height="180" fill="#cbd9e3"/>
+                <rect x="24" y="56" width="96" height="124" rx="6" fill="#eaf2f7"/>
+                <rect x="136" y="30" width="78" height="150" rx="6" fill="#dceaf3"/>
+                <rect x="230" y="72" width="66" height="108" rx="6" fill="#eaf2f7"/>
+                <path d="M60 56l12-26 12 26z" fill="#b9cdda"/>
+                <circle cx="248" cy="118" r="22" fill="#f0b06a"/>
+                <path d="M232 102l-6-16 16 8z" fill="#f0b06a"/>
+                <path d="M262 100l8-14 6 16z" fill="#f0b06a"/>
+                <circle cx="242" cy="118" r="2.6" fill="#5a3d24"/>
+                <circle cx="254" cy="118" r="2.6" fill="#5a3d24"/>
+              </svg>
+              <span class="play" aria-hidden="true"><i></i></span>
+            </div>
+            <div>
+              <h4>探访城里七家猫咖啡馆：空间、气味与猫的舒适度</h4>
+              <div class="meta-row"><span>城市探索</span><span>·</span><span>1.7万播放</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门视频流 -->
+  <section id="videos" class="section-alt">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <h2><small>COMMUNITY / 热门影像</small>猫友正在看的内容</h2>
+          <p>养猫不是一件靠想象完成的事。这里有真实经验、可复用的方法，也有让人安静下来的日常片段。</p>
+        </div>
+      </div>
+      <div class="filter-bar" id="filterBar">
+        <button class="chip active" data-filter="all">全部</button>
+        <button class="chip" data-filter="日常">日常记录</button>
+        <button class="chip" data-filter="科普">知识科普</button>
+        <button class="chip" data-filter="测评">深度测评</button>
+        <button class="chip" data-filter="访谈">人物访谈</button>
+        <button class="chip" data-filter="手作">手作DIY</button>
+      </div>
+      <div class="search-tip" id="searchTip"></div>
+      <div class="video-grid" id="videoGrid">
+
+        <article class="v-card" data-cat="日常" data-title="新手接猫第一周 家庭适应 布偶猫">
+          <div class="cover">
+            <svg viewBox="0 0 480 270" role="img" aria-label="布偶猫在新家纸箱旁探头的日常记录封面" preserveAspectRatio="xMidYMid slice">
+              <rect width="480" height="270" fill="#f6e7d3"/>
+              <rect x="0" y="196" width="480" height="74" fill="#e3c6a4"/>
+              <rect x="286" y="118" width="130" height="96" rx="8" fill="#d9b58a"/>
+              <path d="M300 118l52-38 52 38z" fill="#c79f74"/>
+              <ellipse cx="186" cy="206" rx="76" ry="22" fill="#cfa87e" opacity=".5"/>
+              <ellipse cx="186" cy="168" rx="66" ry="38" fill="#fbf5ec"/>
+              <circle cx="140" cy="140" r="34" fill="#fdf8f1"/>
+              <path d="M116 122l-10-26 24 12z" fill="#e7d8c6"/>
+              <path d="M162 118l10-24 12 22z" fill="#e7d8c6"/>
+              <circle cx="130" cy="138" r="4" fill="#6b5238"/>
+              <circle cx="152" cy="138" r="4" fill="#6b5238"/>
+              <path d="M134 152q7 6 14 0" stroke="#8b7358" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span class="tag">日常记录</span><span class="dur">06:18</span>
+            <span class="play" aria-hidden="true"><i></i></span>
+          </div>
+          <div class="v-body">
+            <h3>新手接猫第一周：从躲藏到主动蹭手的七个信号</h3>
+            <p class="desc">记录布偶猫「奶盖」到家七天的完整适应过程，包含房间布置、气味过渡与互动节奏的实操细节。</p>
+            <div class="v-tags"><span>家庭适应</span><span>新手必看</span></div>
+            <div class="v-foot">
+              <span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#8aa878"/><circle cx="20" cy="16" r="7" fill="#f3f7ef"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#f3f7ef"/></svg></span>
+              <span class="name">奶盖的家</span>
+              <button class="icon-btn like" aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20z"/></svg><span class="num">328</span></button>
+              <button class="icon-btn save" aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="科普" data-title="猫粮成分 配料表 解读 科普">
+          <div class="cover">
+            <svg viewBox="0 0 480 270" role="img" aria-label="猫粮配料表对比解读的科普短片封面" preserveAspectRatio="xMidYMid slice">
+              <rect width="480" height="270" fill="#e6eeE8"/>
+              <rect x="56" y="48" width="160" height="122" rx="10" fill="#ffffff" stroke="#b7cab8" stroke-width="4"/>
+              <path d="M76 78h116M76 104h92M76 130h104" stroke="#b7cab8" stroke-width="5" stroke-linecap="round"/>
+              <rect x="264" y="48" width="160" height="122" rx="10" fill="#ffffff" stroke="#9db79e" stroke-width="4"/>
+              <path d="M284 78h116M284 104h76M284 130h88" stroke="#9db79e" stroke-width="5" stroke-linecap="round"/>
+              <rect x="0" y="196" width="480" height="74" fill="#cddccd"/>
+              <circle cx="180" cy="188" r="20" fill="#ddb989"/>
+              <circle cx="304" cy="188" r="20" fill="#ddb989"/>
+            </svg>
+            <span class="tag">知识科普</span><span class="dur">11:05</span>
+            <span class="play" aria-hidden="true"><i></i></span>
+          </div>
+          <div class="v-body">
+            <h3>看懂猫粮配料表：前五位成分到底该看什么</h3>
+            <p class="desc">拆解十二款常见猫粮的营养标注方式，教你识别粗蛋白来源、灰分与诱食剂，避开营销话术。</p>
+            <div class="v-tags"><span>猫粮测评</span><span>干货</span></div>
+            <div class="v-foot">
+              <span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#7f9bb5"/><circle cx="20" cy="16" r="7" fill="#f1f6fa"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#f1f6fa"/></svg></span>
+              <span class="name">猫营养研究所</span>
+              <button class="icon-btn like" aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20z"/></svg><span class="num">1204</span></button>
+              <button class="icon-btn save" aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="测评" data-title="猫砂盆 测评 除臭 结团">
+          <div class="cover">
+            <svg viewBox="0 0 480 270" role="img" aria-label="四款猫砂盆横向测评的封面" preserveAspectRatio="xMidYMid slice">
+              <rect width="480" height="270" fill="#f2e3d4"/>
+              <rect x="24" y="150" width="96" height="66" rx="10" fill="#d3b28c"/>
+              <rect x="140" y="132" width="96" height="84" rx="10" fill="#c09b74"/>
+              <rect x="256" y="158" width="96" height="58" rx="10" fill="#dcc3a4"/>
+              <rect x="372" y="140" width="96" height="76" rx="10" fill="#b98f68"/>
+              <circle cx="72" cy="132" r="16" fill="#f0c08f"/>
+              <path d="M60 120l-4-14 12 6z" fill="#f0c08f"/><path d="M84 118l6-12 4 14z" fill="#f0c08f"/>
+              <circle cx="188" cy="116" r="16" fill="#e8b8a1"/>
+              <circle cx="304" cy="140" r="16" fill="#a9bc98"/>
+              <circle cx="420" cy="122" r="16" fill="#d9c6ad"/>
+              <rect x="0" y="216" width="480" height="54" fill="#e4cbb2"/>
+            </svg>
+            <span class="tag">深度测评</span><span class="dur">14:33</span>
+            <span class="play" aria-hidden="true"><i></i></span>
+          </div>
+          <div class="v-body">
+            <h3>四款猫砂盆实测三十天：气味、带砂与清理成本</h3>
+            <p class="desc">从封闭式到顶入式，我们记录了气味扩散数据、地面带砂量与每月耗材花费，给出分户型建议。</p>
+            <div class="v-tags"><span>猫砂盆</span><span>数据实测</span></div>
+            <div class="v-foot">
+              <span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#c97430"/><circle cx="20" cy="16" r="7" fill="#fdf0e2"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fdf0e2"/></svg></span>
+              <span class="name">猫宅实验室</span>
+              <button class="icon-btn like" aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20z"/></svg><span class="num">876</span></button>
+              <button class="icon-btn save" aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="访谈" data-title="流浪猫救助 访谈 故事">
+          <div class="cover">
+            <svg viewBox="0 0 480 270" role="img" aria-label="流浪猫救助人十年故事访谈封面" preserveAspectRatio="xMidYMid slice">
+              <rect width="480" height="270" fill="#d9e2e8"/>
+              <circle cx="392" cy="60" r="46" fill="#fff8e6" opacity=".8"/>
+              <rect x="0" y="204" width="480" height="66" fill="#b8c8d2"/>
+              <ellipse cx="212" cy="196" rx="86" ry="24" fill="#93a7b3" opacity=".5"/>
+              <ellipse cx="212" cy="150" rx="74" ry="42" fill="#e2d5c5"/>
+              <circle cx="156" cy="120" r="36" fill="#efe5d8"/>
+              <path d="M132 102l-8-26 22 12z" fill="#c9b8a3"/>
+              <path d="M178 98l10-24 10 22z" fill="#c9b8a3"/>
+              <circle cx="146" cy="118" r="4" fill="#5f4730"/>
+              <circle cx="168" cy="118" r="4" fill="#5f4730"/>
+              <path d="M150 132q7 6 14 0" stroke="#7a6047" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <rect x="300" y="112" width="70" height="92" rx="8" fill="#c3d2da"/>
+            </svg>
+            <span class="tag">人物访谈</span><span class="dur">18:20</span>
+            <span class="play" aria-hidden="true"><i></i></span>
+          </div>
+          <div class="v-body">
+            <h3>十年守着一间救助小屋：她与四百三十只猫的告别</h3>
+            <p class="desc">关于坚持、告别与重新出发的一次长谈，也谈到了领养回访制度为什么必须存在。</p>
+            <div class="v-tags"><span>救助故事</span><span>长访谈</span></div>
+            <div class="v-foot">
+              <span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#e5a7a1"/><circle cx="20" cy="16" r="7" fill="#fdf3f1"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fdf3f1"/></svg></span>
+              <span class="name">猫咪网编辑部</span>
+              <button class="icon-btn like" aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20z"/></svg><span class="num">2451</span></button>
+              <button class="icon-btn save" aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="手作" data-title="猫咪纸箱城堡 手作DIY 教程">
+          <div class="cover">
+            <svg viewBox="0 0 480 270" role="img" aria-label="用纸箱搭建猫咪城堡的手作教程封面" preserveAspectRatio="xMidYMid slice">
+              <rect width="480" height="270" fill="#f7ecd9"/>
+              <rect x="0" y="200" width="480" height="70" fill="#e3cba8"/>
+              <rect x="70" y="120" width="120" height="80" fill="#d6b489"/>
+              <rect x="86" y="88" width="88" height="32" fill="#c9a478"/>
+              <path d="M86 88l44-32 44 32z" fill="#bd9769"/>
+              <rect x="240" y="96" width="150" height="104" fill="#d6b489"/>
+              <path d="M240 96l75-46 75 46z" fill="#bd9769"/>
+              <rect x="300" y="140" width="42" height="60" rx="4" fill="#a9855c"/>
+              <circle cx="352" cy="130" r="16" fill="#f0b06a"/>
+              <path d="M340 118l-4-14 12 6z" fill="#f0b06a"/><path d="M364 116l6-12 4 14z" fill="#f0b06a"/>
+            </svg>
+            <span class="tag">手作DIY</span><span class="dur">09:47</span>
+            <span class="play" aria-hidden="true"><i></i></span>
+          </div>
+          <div class="v-body">
+            <h3>零成本纸箱城堡：一下午给猫做出三层的攀爬乐园</h3>
+            <p class="desc">用快递纸箱、麻绳与无毒白胶完成的结构教程，包含承重加固与防倒塌的细节处理。</p>
+            <div class="v-tags"><span>纸箱手作</span><span>可跟做</span></div>
+            <div class="v-foot">
+              <span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#caa06a"/><circle cx="20" cy="16" r="7" fill="#fbf4ea"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fbf4ea"/></svg></span>
+              <span class="name">木木手作间</span>
+              <button class="icon-btn like" aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20z"/></svg><span class="num">632</span></button>
+              <button class="icon-btn save" aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="v-card" data-cat="日常" data-title="夜班猫 深夜陪伴 独居">
+          <div class="cover">
+            <svg viewBox="0 0 480 270" role="img" aria-label="深夜书房里猫陪主人加班的治愈影像封面" preserveAspectRatio="xMidYMid slice">
+              <rect width="480" height="270" fill="#33384a"/>
+              <rect x="0" y="206" width="480" height="64" fill="#252a38"/>
+              <rect x="58" y="46" width="120" height="88" rx="6" fill="#4a5a70"/>
+              <circle cx="104" cy="82" r="20" fill="#f4e2b0" opacity=".9"/>
+              <rect x="242" y="112" width="160" height="96" rx="8" fill="#3f4759"/>
+              <rect x="262" y="132" width="120" height="14" rx="4" fill="#7f93ab"/>
+              <ellipse cx="150" cy="206" rx="60" ry="18" fill="#1d2230" opacity=".7"/>
+              <ellipse cx="150" cy="172" rx="52" ry="30" fill="#e8c79f"/>
+              <circle cx="110" cy="150" r="26" fill="#f2d6b0"/>
+              <path d="M92 134l-8-20 18 9z" fill="#d9b48c"/>
+              <path d="M128 132l8-18 8 18z" fill="#d9b48c"/>
+              <circle cx="102" cy="148" r="3" fill="#4a3a2a"/>
+              <circle cx="120" cy="148" r="3" fill="#4a3a2a"/>
+            </svg>
+            <span class="tag">日常记录</span><span class="dur">05:12</span>
+            <span class="play" aria-hidden="true"><i></i></span>
+          </div>
+          <div class="v-body">
+            <h3>凌晨一点的键盘声：独居第七年，猫替我关掉了灯</h3>
+            <p class="desc">记录一个加班夜晚的安静陪伴，也聊聊独居养猫需要注意的安全用电与夜间喂食安排。</p>
+            <div class="v-tags"><span>治愈影像</span><span>独居生活</span></div>
+            <div class="v-foot">
+              <span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#5b6b82"/><circle cx="20" cy="16" r="7" fill="#eaf0f7"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#eaf0f7"/></svg></span>
+              <span class="name">深夜放映员</span>
+              <button class="icon-btn like" aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20z"/></svg><span class="num">941</span></button>
+              <button class="icon-btn save" aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section id="topics">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <h2><small>PROJECTS / 专题企划</small>正在进行的主题共创</h2>
+          <p>每一个专题都由平台编辑与创作者共同策划，用更完整的结构呈现猫咪与人之间复杂而轻盈的关系。</p>
+        </div>
+        <a class="sec-link" href="#contact">参与共创 →</a>
+      </div>
+      <div class="topic-grid">
+        <article class="topic">
+          <svg viewBox="0 0 420 260" role="img" aria-label="猫的一天二十四小时影像共创专题封面" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5b872"/><stop offset="1" stop-color="#d9803f"/></linearGradient></defs>
+            <rect width="420" height="260" fill="url(#t1)"/>
+            <circle cx="320" cy="66" r="48" fill="#fff2d4" opacity=".8"/>
+            <ellipse cx="130" cy="196" rx="72" ry="26" fill="#b8662f" opacity=".55"/>
+            <ellipse cx="130" cy="158" rx="60" ry="36" fill="#fff0d8" opacity=".92"/>
+            <circle cx="88" cy="128" r="30" fill="#fff7e8"/>
+            <path d="M66 110l-8-24 22 12z" fill="#fff7e8"/>
+            <path d="M110 108l8-22 10 22z" fill="#fff7e8"/>
+            <path d="M180 200h180M180 220h120" stroke="#fff2d4" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+          </svg>
+          <span class="state">更新中</span>
+          <h3>「猫的一天」24小时影像共创</h3>
+          <p>征集猫友镜头里的清晨、午后与深夜，拼出一只猫完整的一天。</p>
+          <div class="count">已收录 186 支作品 · 共 24 个时段</div>
+        </article>
+
+        <article class="topic">
+          <svg viewBox="0 0 420 260" role="img" aria-label="新手养猫三十问知识专题封面" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#93b38c"/><stop offset="1" stop-color="#5f7f5c"/></linearGradient></defs>
+            <rect width="420" height="260" fill="url(#t2)"/>
+            <rect x="70" y="56" width="180" height="150" rx="12" fill="#f4f8f0" opacity=".94"/>
+            <path d="M96 92h124M96 120h96M96 148h112M96 176h70" stroke="#8fae88" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="316" cy="150" r="46" fill="#dcead6" opacity=".9"/>
+            <text x="316" y="162" text-anchor="middle" font-size="34" font-weight="700" fill="#4d6b4a" font-family="sans-serif">?</text>
+          </svg>
+          <span class="state">连载中</span>
+          <h3>新手养猫三十问</h3>
+          <p>从接猫、驱虫、疫苗到绝育与行为问题，用短影像逐一回答最常被追问的三十个问题。</p>
+          <div class="count">已更新 22 期 · 平均单集 6 分钟</div>
+        </article>
+
+        <article class="topic">
+          <svg viewBox="0 0 420 260" role="img" aria-label="城市猫地图地域探索专题封面" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="t3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a8c3d6"/><stop offset="1" stop-color="#6c8ba3"/></linearGradient></defs>
+            <rect width="420" height="260" fill="url(#t3)"/>
+            <rect x="34" y="110" width="86" height="120" rx="6" fill="#e9f2f8" opacity=".92"/>
+            <rect x="136" y="72" width="72" height="158" rx="6" fill="#dceaf3" opacity=".92"/>
+            <rect x="224" y="128" width="94" height="102" rx="6" fill="#e9f2f8" opacity=".92"/>
+            <rect x="334" y="96" width="58" height="134" rx="6" fill="#dceaf3" opacity=".92"/>
+            <circle cx="300" cy="70" r="22" fill="#f6e6c8"/>
+            <path d="M282 56l-6-16 16 8z" fill="#f6e6c8"/>
+            <path d="M316 54l6-14 6 16z" fill="#f6e6c8"/>
+            <path d="M60 230h310" stroke="#f2f8fc" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+          </svg>
+          <span class="state">持续募集中</span>
+          <h3>城市猫地图</h3>
+          <p>走访不同城市里的猫咖、救助站与社区喂养点，记录一座城市与猫共处的空间细节。</p>
+          <div class="count">已覆盖 17 座城市 · 42 个地点</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section id="creators" class="section-alt">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <h2><small>CREATORS / 创作者矩阵</small>把猫拍好的人</h2>
+          <p>平台签约与推荐创作者来自不同背景，有兽医、救助人、手作爱好者，也有认真记录日常的普通猫友。</p>
+        </div>
+        <a class="sec-link" href="#contact">申请成为创作者 →</a>
+      </div>
+      <div class="creator-grid">
+        <article class="creator">
+          <div class="avatar"><svg viewBox="0 0 80 80" role="img" aria-label="创作者橘座日记的橘猫头像插画"><rect width="80" height="80" fill="#f0b06a"/><circle cx="40" cy="32" r="17" fill="#fff5e8"/><path d="M24 20l-5-14 14 7z" fill="#fff5e8"/><path d="M56 18l6-12 6 14z" fill="#fff5e8"/><circle cx="34" cy="31" r="2.6" fill="#6b4a2e"/><circle cx="46" cy="31" r="2.6" fill="#6b4a2e"/><path d="M36 40q4 4 8 0" stroke="#6b4a2e" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M12 78c3-15 14-22 28-22s25 7 28 22z" fill="#fff5e8"/></svg></div>
+          <h3>橘座日记</h3>
+          <div class="field">日常记录 · 生活影像</div>
+          <p>和一只十岁的橘猫同住，擅长用固定镜头捕捉真实的等待与靠近。</p>
+          <div class="nums"><span><b>142</b> 作品</span><span><b>8.6万</b> 粉丝</span></div>
+          <button class="more" data-author="橘座日记">查看简介</button>
+        </article>
+        <article class="creator">
+          <div class="avatar"><svg viewBox="0 0 80 80" role="img" aria-label="创作者猫营养研究所的蓝灰头像插画"><rect width="80" height="80" fill="#7f9bb5"/><circle cx="40" cy="30" r="15" fill="#f1f6fa"/><path d="M28 20l-4-12 12 6z" fill="#f1f6fa"/><path d="M52 18l5-10 5 12z" fill="#f1f6fa"/><rect x="30" y="38" width="20" height="6" rx="3" fill="#f1f6fa"/><path d="M14 78c3-14 12-20 26-20s23 6 26 20z" fill="#f1f6fa"/></svg></div>
+          <h3>猫营养研究所</h3>
+          <div class="field">知识科普 · 深度测评</div>
+          <p>宠物营养方向从业者，用数据和公开文献解释猫粮、零食与日常喂养的问题。</p>
+          <div class="nums"><span><b>96</b> 作品</span><span><b>12.3万</b> 粉丝</span></div>
+          <button class="more" data-author="猫营养研究所">查看简介</button>
+        </article>
+        <article class="creator">
+          <div class="avatar"><svg viewBox="0 0 80 80" role="img" aria-label="创作者奶盖的家的暖绿头像插画"><rect width="80" height="80" fill="#8aa878"/><circle cx="40" cy="30" r="15" fill="#f3f7ef"/><path d="M28 20l-4-12 12 6z" fill="#f3f7ef"/><path d="M52 18l5-10 5 12z" fill="#f3f7ef"/><circle cx="35" cy="29" r="2.4" fill="#4f6348"/><circle cx="45" cy="29" r="2.4" fill="#4f6348"/><path d="M14 78c3-14 12-20 26-20s23 6 26 20z" fill="#f3f7ef"/></svg></div>
+          <h3>奶盖的家</h3>
+          <div class="field">家庭适应 · 新手向</div>
+          <p>两只布偶的铲屎官，把新手接猫容易踩的坑一条条拍成可照做的步骤。</p>
+          <div class="nums"><span><b>78</b> 作品</span><span><b>6.2万</b> 粉丝</span></div>
+          <button class="more" data-author="奶盖的家">查看简介</button>
+        </article>
+        <article class="creator">
+          <div class="avatar"><svg viewBox="0 0 80 80" role="img" aria-label="创作者木木手作间的浅棕头像插画"><rect width="80" height="80" fill="#caa06a"/><circle cx="40" cy="30" r="15" fill="#fbf4ea"/><path d="M28 20l-4-12 12 6z" fill="#fbf4ea"/><path d="M52 18l5-10 5 12z" fill="#fbf4ea"/><rect x="32" y="26" width="16" height="4" rx="2" fill="#caa06a"/><path d="M14 78c3-14 12-20 26-20s23 6 26 20z" fill="#fbf4ea"/></svg></div>
+          <h3>木木手作间</h3>
+          <div class="field">手作DIY · 家居适配</div>
+          <p>用纸箱、麻绳和旧木料给猫做东西，坚持零成本与可复制的结构教程。</p>
+          <div class="nums"><span><b>64</b> 作品</span><span><b>4.9万</b> 粉丝</span></div>
+          <button class="more" data-author="木木手作间">查看简介</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 猫友随笔 + 作品墙 -->
+  <section id="story">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <h2><small>ESSAYS / 猫友随笔</small>镜头之外的那些话</h2>
+          <p>影像是记录，文字是回看。这里收录猫友写下的片段，它们和视频一起构成了社区真实的质感。</p>
+        </div>
+      </div>
+      <div class="story-wrap">
+        <div class="story-grid">
+          <article class="story">
+            <div class="thumb">
+              <svg viewBox="0 0 360 200" role="img" aria-label="老猫在阳台晒太阳的随笔配图" preserveAspectRatio="xMidYMid slice">
+                <rect width="360" height="200" fill="#f7ecd8"/>
+                <rect x="0" y="148" width="360" height="52" fill="#e6cba6"/>
+                <circle cx="286" cy="46" r="34" fill="#fff4d9"/>
+                <ellipse cx="150" cy="150" rx="66" ry="18" fill="#d6b48c" opacity=".6"/>
+                <ellipse cx="150" cy="124" rx="56" ry="30" fill="#e8c79c"/>
+                <circle cx="108" cy="102" r="24" fill="#f2d8b4"/>
+                <path d="M92 88l-6-18 16 9z" fill="#d9b48c"/>
+                <path d="M124 86l8-16 6 18z" fill="#d9b48c"/>
+                <path d="M100 100q4 4 8 0" stroke="#7a5c3c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>它开始睡得更久了</h3>
+            <p>十岁之后，它每天醒着的时间明显变短。我把摄像机架在窗边，不再追着它拍，而是等它自己走到光里来。后来我发现，好的记录从来不是打扰。</p>
+            <div class="who">—— 橘座日记</div>
+          </article>
+          <article class="story">
+            <div class="thumb">
+              <svg viewBox="0 0 360 200" role="img" aria-label="救助小屋门前猫群等待喂食的随笔配图" preserveAspectRatio="xMidYMid slice">
+                <rect width="360" height="200" fill="#dfe7dd"/>
+                <rect x="0" y="150" width="360" height="50" fill="#c3d0be"/>
+                <rect x="42" y="52" width="110" height="98" rx="8" fill="#f4f8f0"/>
+                <path d="M42 52l55-30 55 30z" fill="#b8c9b1"/>
+                <circle cx="238" cy="146" r="20" fill="#e6b98c"/>
+                <circle cx="288" cy="150" r="16" fill="#cfc0a8"/>
+                <circle cx="196" cy="152" r="13" fill="#b0a596"/>
+                <path d="M232 130l-4-12 12 6z" fill="#e6b98c"/>
+                <path d="M246 130l6-10 4 12z" fill="#e6b98c"/>
+              </svg>
+            </div>
+            <h3>喂养点的一百二十天</h3>
+            <p>从最初只有两只猫，到后来固定出现七只。我们没有给它们取名字，因为取名字就意味着要负责到底。但我们记住了每一只猫来的时间。</p>
+            <div class="who">—— 社区喂养小组</div>
+          </article>
+          <article class="story">
+            <div class="thumb">
+              <svg viewBox="0 0 360 200" role="img" aria-label="书桌上猫踩键盘打字的随笔配图" preserveAspectRatio="xMidYMid slice">
+                <rect width="360" height="200" fill="#f3e2d9"/>
+                <rect x="0" y="140" width="360" height="60" fill="#dfbfae"/>
+                <rect x="60" y="96" width="180" height="52" rx="6" fill="#fff8f2"/>
+                <path d="M80 118h140M80 132h96" stroke="#ddbcac" stroke-width="4" stroke-linecap="round"/>
+                <ellipse cx="286" cy="150" rx="50" ry="16" fill="#c8a48e" opacity=".6"/>
+                <ellipse cx="286" cy="120" rx="40" ry="24" fill="#e5c1a9"/>
+                <circle cx="254" cy="102" r="20" fill="#efd0ba"/>
+                <path d="M240 90l-6-16 14 7z" fill="#dcb194"/>
+                <path d="M268 88l6-14 6 16z" fill="#dcb194"/>
+              </svg>
+            </div>
+            <h3>它踩过的每一次键盘</h3>
+            <p>写稿的时候它总会跳上桌，走过键盘、踩住删除键。我一度很烦，后来把那些被删掉的句子截图存了下来，现在看，那是我一年里最松弛的证据。</p>
+            <div class="who">—— 深夜放映员</div>
+          </article>
+        </div>
+      </div>
+
+      <div style="margin-top:44px;">
+        <div class="sec-head" style="margin-bottom:22px;">
+          <div>
+            <h2 style="font-size:23px;"><small>WALL / 影像墙</small>社区作品墙</h2>
+          </div>
+          <a class="sec-link" href="#contact">上传你的作品 →</a>
+        </div>
+        <div class="wall">
+          <div class="wall-item big">
+            <svg viewBox="0 0 420 300" role="img" aria-label="大图：阳光下的三花猫抬头看镜头" preserveAspectRatio="xMidYMid slice">
+              <rect width="420" height="300" fill="#f5dcc0"/>
+              <circle cx="330" cy="72" r="52" fill="#fff3d8" opacity=".85"/>
+              <rect x="0" y="218" width="420" height="82" fill="#e2bd94"/>
+              <ellipse cx="196" cy="214" rx="86" ry="24" fill="#c99a6b" opacity=".45"/>
+              <ellipse cx="196" cy="170" rx="74" ry="42" fill="#e8c9a4"/>
+              <circle cx="140" cy="136" r="38" fill="#f2d8bc"/>
+              <path d="M114 118l-10-28 26 13z" fill="#c9925c"/>
+              <path d="M168 114l10-26 12 26z" fill="#c9925c"/>
+              <circle cx="128" cy="132" r="5" fill="#5f4730"/>
+              <circle cx="152" cy="132" r="5" fill="#5f4730"/>
+              <path d="M132 148q8 7 16 0" stroke="#7a6047" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div class="cap">午后三点，三花在窗台</div>
+          </div>
+          <div class="wall-item">
+            <svg viewBox="0 0 200 150" role="img" aria-label="中图：黑猫在纸袋里露头" preserveAspectRatio="xMidYMid slice">
+              <rect width="200" height="150" fill="#e8dfd3"/>
+              <rect x="42" y="66" width="118" height="84" rx="4" fill="#cdb99f"/>
+              <path d="M42 66l59-34 59 34z" fill="#bda487"/>
+              <circle cx="100" cy="96" r="26" fill="#3e3a36"/>
+              <path d="M80 82l-6-18 18 9z" fill="#3e3a36"/>
+              <path d="M120 80l8-16 6 18z" fill="#3e3a36"/>
+              <circle cx="92" cy="94" r="3" fill="#f0e6d6"/>
+              <circle cx="108" cy="94" r="3" fill="#f0e6d6"/>
+            </svg>
+            <div class="cap">纸袋是它最好的房间</div>
+          </div>
+          <div class="wall-item">
+            <svg viewBox="0 0 200 150" role="img" aria-label="中图：猫咪在阳光下伸懒腰剪影" preserveAspectRatio="xMidYMid slice">
+              <rect width="200" height="150" fill="#fbe9cf"/>
+              <rect x="0" y="110" width="200" height="40" fill="#eccfa9"/>
+              <circle cx="150" cy="42" r="28" fill="#fff4de"/>
+              <ellipse cx="92" cy="114" rx="46" ry="12" fill="#d8b48b"/>
+              <ellipse cx="92" cy="94" rx="38" ry="20" fill="#c99a6b"/>
+              <circle cx="62" cy="82" r="17" fill="#c99a6b"/>
+              <path d="M50 72l-4-14 12 7z" fill="#c99a6b"/>
+              <path d="M72 70l6-12 4 14z" fill="#c99a6b"/>
+              <path d="M126 96q22-10 20-32" stroke="#c99a6b" stroke-width="10" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div class="cap">伸懒腰的标准示范</div>
+          </div>
+          <div class="wall-item">
+            <svg viewBox="0 0 200 150" role="img" aria-label="小图：白色小猫从毛毯里探头" preserveAspectRatio="xMidYMid slice">
+              <rect width="200" height="150" fill="#e3ebdf"/>
+              <rect x="0" y="88" width="200" height="62" fill="#cddcc7"/>
+              <ellipse cx="100" cy="104" rx="56" ry="20" fill="#f6faf2"/>
+              <circle cx="100" cy="80" r="26" fill="#fbfdf8"/>
+              <path d="M80 66l-6-16 16 8z" fill="#eef4e8"/>
+              <path d="M120 64l6-14 6 16z" fill="#eef4e8"/>
+              <circle cx="92" cy="78" r="3" fill="#6b7a63"/>
+              <circle cx="108" cy="78" r="3" fill="#6b7a63"/>
+            </svg>
+            <div class="cap">毛毯下的小白团</div>
+          </div>
+          <div class="wall-item">
+            <svg viewBox="0 0 200 150" role="img" aria-label="小图：猫爪踩在木地板上的特写" preserveAspectRatio="xMidYMid slice">
+              <rect width="200" height="150" fill="#e7c9a5"/>
+              <path d="M0 40h200M0 80h200M0 120h200" stroke="#d5ae84" stroke-width="4"/>
+              <circle cx="94" cy="86" r="18" fill="#f3dcc2"/>
+              <circle cx="76" cy="66" r="7" fill="#f3dcc2"/>
+              <circle cx="92" cy="60" r="7" fill="#f3dcc2"/>
+              <circle cx="108" cy="62" r="7" fill="#f3dcc2"/>
+            </svg>
+            <div class="cap">爪印留在地板上</div>
+          </div>
+          <div class="wall-item">
+            <svg viewBox="0 0 200 150" role="img" aria-label="小图：猫在窗边看雨的背影" preserveAspectRatio="xMidYMid slice">
+              <rect width="200" height="150" fill="#c8d5dd"/>
+              <rect x="30" y="20" width="140" height="96" rx="6" fill="#e4eef4"/>
+              <path d="M100 20v96M30 68h140" stroke="#aebfc9" stroke-width="4"/>
+              <path d="M52 34l-4 12M76 44l-4 12M120 36l-4 12M146 50l-4 12" stroke="#a9c0cc" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="100" cy="128" rx="42" ry="12" fill="#b0c0ca"/>
+              <ellipse cx="100" cy="110" rx="34" ry="18" fill="#6b7d88"/>
+              <circle cx="76" cy="100" r="15" fill="#6b7d88"/>
+              <path d="M64 92l-4-12 12 6z" fill="#6b7d88"/>
+              <path d="M86 90l6-10 4 12z" fill="#6b7d88"/>
+            </svg>
+            <div class="cap">等雨停的下午</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户评价 + 动态 -->
+  <section id="updates" class="section-alt">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <h2><small>VOICES / 猫友之声</small>他们怎么说这个社区</h2>
+          <p>来自不同城市、不同养猫阶段的真实反馈，也是我们持续优化内容的依据。</p>
+        </div>
+      </div>
+      <div class="review-grid">
+        <div class="review">
+          <div class="quote">“</div>
+          <p>第一次养猫的时候完全靠猜，这里的科普短片把很多我担心的问题讲清楚了，尤其是疫苗时间表那一期，我存下来反复看。</p>
+          <div class="who"><span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#e5a7a1"/><circle cx="20" cy="16" r="7" fill="#fff"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fff"/></svg></span>小满 · 养猫一年</div>
+        </div>
+        <div class="review">
+          <div class="quote">“</div>
+          <p>视频的调色和收音都很舒服，不像很多内容一味追求刺激。晚上加班回来放两集，猫在脚边睡着了，我也放松下来。</p>
+          <div class="who"><span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#8aa878"/><circle cx="20" cy="16" r="7" fill="#fff"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fff"/></svg></span>阿洛 · 独居上班族</div>
+        </div>
+        <div class="review">
+          <div class="quote">“</div>
+          <p>我投过两支救助站的记录，编辑给了很具体的修改建议，不是那种敷衍的通过。后来那支片子帮三只猫找到了领养。</p>
+          <div class="who"><span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#7f9bb5"/><circle cx="20" cy="16" r="7" fill="#fff"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fff"/></svg></span>林间小院 · 投稿作者</div>
+        </div>
+        <div class="review">
+          <div class="quote">“</div>
+          <p>平台的内容分寸感不错，没有过度煽情。领养代替购买的倡导也做得很克制，是用故事讲，不是喊口号。</p>
+          <div class="who"><span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#c97430"/><circle cx="20" cy="16" r="7" fill="#fff"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fff"/></svg></span>苏医生 · 宠物医院从业者</div>
+        </div>
+        <div class="review">
+          <div class="quote">“</div>
+          <p>手作专题里那个纸箱城堡我真的跟着做了，两层就够它玩一下午。希望以后多出点便宜好复制的教程。</p>
+          <div class="who"><span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#caa06a"/><circle cx="20" cy="16" r="7" fill="#fff"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fff"/></svg></span>周周 · 新手铲屎官</div>
+        </div>
+        <div class="review">
+          <div class="quote">“</div>
+          <p>猫咪网的企业动态更新很实在，能看到他们在做什么专题、签约了哪些创作者，不像有些站点只挂个空壳首页。</p>
+          <div class="who"><span class="av-sm"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#5b6b82"/><circle cx="20" cy="16" r="7" fill="#fff"/><path d="M6 38c2-9 8-13 14-13s12 4 14 13z" fill="#fff"/></svg></span>陈先生 · 内容行业观察者</div>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top:48px;">
+        <div>
+          <div class="sec-head" style="margin-bottom:22px;">
+            <div>
+              <h2 style="font-size:23px;"><small>NEWS / 企业动态</small>官方发布与内容更新</h2>
+            </div>
+          </div>
+          <ul class="news-list">
+            <li>
+              <span class="date">04 / 18</span>
+              <div>
+                <h3>「猫的一天」共创企划新增三个时段投稿位</h3>
+                <p>清晨五点到七点、午休、深夜时段开放征稿，入选作品将进入官方年度影像合辑。</p>
+              </div>
+            </li>
+            <li>
+              <span class="date">04 / 09</span>
+              <div>
+                <h3>平台完成年度创作者培训计划第一期</h3>
+                <p>共 46 位创作者参与，主题涵盖宠物拍摄安全、动物行为观察与剪辑叙事结构。</p>
+              </div>
+            </li>
+            <li>
+              <span class="date">03 / 27</span>
+              <div>
+                <h3>《新手养猫三十问》更新至第二十二期</h3>
+                <p>新增绝育前后护理、多猫家庭资源分配两集，配套图文攻略可在帮助中心查阅。</p>
+              </div>
+            </li>
+            <li>
+              <span class="date">03 / 12</span>
+              <div>
+                <h3>与五家城市救助机构达成内容共建合作</h3>
+                <p>后续将联合推出领养回访记录短片，并开放机构账号入驻通道。</p>
+              </div>
+            </li>
+            <li>
+              <span class="date">02 / 28</span>
+              <div>
+                <h3>猫咪网内容品质规范 3.0 正式生效</h3>
+                <p>明确禁止摆拍式危险镜头，强化动物福利审核流程，保障内容的专业与社会责任。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="partner-card">
+          <h3>合作机构与品牌伙伴</h3>
+          <div class="partner-logos">
+            <div>城市流浪动物之家</div>
+            <div>安心宠物医院</div>
+            <div>毛球公益基金</div>
+            <div>木间手作工坊</div>
+            <div>邻家社区猫屋</div>
+            <div>爪印影像工作室</div>
+          </div>
+          <p style="font-size:12.5px;color:var(--ink-soft);margin-top:16px;line-height:1.85;">
+            我们与公益机构、医疗机构与独立工作室共同推进真实、正向的猫咪内容生产，坚持正版素材与原创表达，持续为社区输出值得信赖的影像作品。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ + 联系 -->
+  <section id="faq">
+    <div class="container">
+      <div class="sec-head" style="justify-content:center;text-align:center;">
+        <div>
+          <h2><small>FAQ / 帮助中心</small>常见问题</h2>
+          <p style="margin-left:auto;margin-right:auto;">关于投稿、观看与创作者认证，这里有比较完整的回答。</p>
+        </div>
+      </div>
+      <div class="faq-wrap">
+        <details open>
+          <summary>如何向猫咪网投稿，需要什么条件？</summary>
+          <div class="faq-body">任何注册用户都可以通过「联系投稿」入口提交作品。建议提供 16:9 横版、1080p 以上的原始素材，并附上简短的拍摄说明。我们优先欢迎真实记录、有可复用经验的养猫内容。作品通过审核后会进入编辑推荐池，并收到具体反馈意见。</div>
+        </details>
+        <details>
+          <summary>投稿的作品版权归谁所有？</summary>
+          <div class="faq-body">作品版权归创作者本人所有，平台仅在获得授权范围内进行展示与专题推荐。官方发布时会完整保留创作者署名，任何商业用途都会另行签订授权协议。我们坚持原创与正版原则，不接受未经授权的搬运内容。</div>
+        </details>
+        <details>
+          <summary>成为推荐创作者需要满足哪些条件？</summary>
+          <div class="faq-body">通常需要满足三点：持续更新（近三个月不少于 8 支作品）、内容方向明确、以及无违规记录。满足条件后可在创作者页面提交申请，通过审核后可获得选题支持、拍摄指导与专题联动机会。</div>
+        </details>
+        <details>
+          <summary>视频里的养猫建议可以直接照做吗？</summary>
+          <div class="faq-body">知识类内容会标注参考依据与合作兽医的信息，但每只猫的年龄、体质和既往病史不同，具体医疗决策仍应以线下执业兽医面诊为准。涉及用药、麻醉与手术的内容，平台会额外提示风险。</div>
+        </details>
+        <details>
+          <summary>我可以申请拍摄自己所在城市的救助站吗？</summary>
+          <div class="faq-body">可以，这也是「城市猫地图」专题的重要来源。建议提前与机构沟通拍摄范围，避免在动物应激状态下拍摄，并注意不暴露具体救助点位置以防弃养行为。平台可提供一份拍摄注意事项清单。</div>
+        </details>
+        <details>
+          <summary>平台对视频画质和时长有要求吗？</summary>
+          <div class="faq-body">推荐 1080p 及以上，帧率不低于 25 帧，音频无持续底噪。日常记录类建议控制在 3 至 10 分钟，知识科普与测评建议 8 至 15 分钟，深度访谈可适当延长。</div>
+        </details>
+        <details>
+          <summary>如何联系官方进行合作或反馈问题？</summary>
+          <div class="faq-body">可在页面底部找到联系邮箱与工作时间，也可以通过「联系投稿」弹窗提交信息。针对内容问题、举报与侵权投诉，我们会在三个工作日内回复处理进展。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系/投稿 CTA -->
+  <section id="contact" style="padding-top:0;">
+    <div class="container">
+      <div class="cta">
+        <h2>把镜头对准猫，也把温柔留下来</h2>
+        <p>无论你是有多年经验的创作者，还是刚开始记录第一支视频的猫友，猫咪网都欢迎你的加入。让我们用原创、真实、有品质的影像，构建一个值得信赖的内容生态。</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="openSubmit">立即投稿</button>
+          <button class="btn btn-ghost" id="openShare2">分享给猫友</button>
+          <a class="btn btn-ghost" href="#videos">先去逛逛</a>
+        </div>
+        <p style="margin-top:22px;font-size:12.5px;color:#8a6a48;position:relative;z-index:1;">
+          官方邮箱：hello@maomi.video（示例） · 合作与投稿咨询：工作日 10:00 - 18:00
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo" aria-label="返回猫咪网官方网站顶部">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 9l2.5-4 3 2.5h5L17.5 5 20 9v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9z"/>
+              <circle cx="9.3" cy="12" r="1.1" fill="#fff" stroke="none"/>
+              <circle cx="14.7" cy="12" r="1.1" fill="#fff" stroke="none"/>
+              <path d="M10.5 15.4c.9.7 2.1.7 3 0"/>
+            </svg>
+          </span>
+          <span>猫咪网<small>MAOMI VIDEO</small></span>
+        </a>
+        <p class="line">
+          猫咪网官方网站，专注猫咪生活方式与养猫经验的视频品牌。深耕垂直领域，坚持原创与正版内容，
+          以专业、温暖、真实的影像陪伴每一位猫友的日常。持续运营中，愿做用户首选的猫咪影像社区。
+        </p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#focus">焦点影像</a></li>
+          <li><a href="#videos">热门视频</a></li>
+          <li><a href="#topics">专题企划</a></li>
+          <li><a href="#creators">创作者矩阵</a></li>
+          <li><a href="#story">猫友随笔</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于平台</h4>
+        <ul>
+          <li><a href="#updates">企业动态</a></li>
+          <li><a href="#faq">帮助中心</a></li>
+          <li><a href="#contact">联系投稿</a></li>
+          <li><a href="#contact">品牌合作</a></li>
+          <li><a href="#topics">内容规范</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>社区守则</h4>
+        <ul>
+          <li><a href="#faq">原创内容保护</a></li>
+          <li><a href="#faq">动物福利倡议</a></li>
+          <li><a href="#faq">领养回访说明</a></li>
+          <li><a href="#faq">举报与反馈</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 猫咪网 · 官方网站 · 版权所有 · 持续运营中</span>
+      <span>内容备案号占位 · 增值电信业务经营许可证占位 · 用户至上 · 匠心做内容</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="回到顶部">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14l6-6 6 6"/></svg>
+</button>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- 分享弹窗 -->
+<div class="modal-mask" id="shareModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
+    <button class="modal-close" data-close aria-label="关闭">×</button>
+    <h3 id="shareTitle">分享猫咪网</h3>
+    <p class="sub">把这份温柔转给同样喜欢猫的朋友</p>
+    <div class="share-row">
+      <button data-share="微信">微信</button>
+      <button data-share="微博">微博</button>
+      <button data-share="QQ">QQ</button>
+      <button data-share="朋友圈">朋友圈</button>
+    </div>
+    <label for="shareLink">页面链接</label>
+    <div class="copy-row">
+      <input id="shareLink" type="text" readonly value="猫咪网 · 官方视频社区">
+      <button class="btn btn-primary" style="padding:10px 18px;border-radius:11px;" id="copyBtn">复制</button>
+    </div>
+  </div>
+</div>
+
+<!-- 投稿弹窗 -->
+<div class="modal-mask" id="submitModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="submitTitle">
+    <button class="modal-close" data-close aria-label="关闭">×</button>
+    <h3 id="submitTitle">投稿 / 合作联系</h3>
+    <p class="sub">填写基本信息，编辑会在一至三个工作日内联系你</p>
+    <label for="sName">你的称呼</label>
+    <input id="sName" type="text" placeholder="例如：橘座日记">
+    <label for="sMail">联系邮箱</label>
+    <input id="sMail" type="email" placeholder="例如：name@example.com">
+    <label for="sMsg">作品或合作说明</label>
+    <textarea id="sMsg" placeholder="简要说明作品主题、时长与拍摄方式"></textarea>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;" id="submitBtn">提交</button>
+  </div>
+</div>
+
+<!-- 作者信息弹窗 -->
+<div class="modal-mask" id="authorModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="authorTitle">
+    <button class="modal-close" data-close aria-label="关闭">×</button>
+    <h3 id="authorTitle">创作者</h3>
+    <p class="sub" id="authorSub">平台推荐创作者</p>
+    <p id="authorDesc" style="font-size:13.5px;color:var(--ink-soft);line-height:1.9;"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* 移动端导航 */
+  var burger = document.getElementById('burger');
+  var mainNav = document.getElementById('mainNav');
+  burger.addEventListener('click', function(){
+    var open = mainNav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mainNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(window.innerWidth <= 760){
+        mainNav.classList.remove('open');
+        burger.setAttribute('aria-expanded','false');
+      }
+    });
+  });
+
+  /* Toast */
+  var toastEl = document.getElementById('toast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* 数字滚动 */
+  var counters = document.querySelectorAll('[data-count]');
+  var done = false;
+  function runCount(){
+    if(done) return;
+    var trigger = window.innerHeight * 0.9;
+    var first = counters[0];
+    if(!first) return;
+    if(first.getBoundingClientRect().top > trigger) return;
+    done = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var cur = 0, step = Math.max(1, Math.round(target / 45));
+      var t = setInterval(function(){
+        cur += step;
+        if(cur >= target){ cur = target; clearInterval(t); }
+        el.textContent = cur;
+      }, 22);
+    });
+  }
+  window.addEventListener('scroll', runCount);
+  window.addEventListener('load', runCount);
+
+  /* 回到顶部 */
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 420) toTop.classList.add('show');
+    else toTop.classList.remove('show');
+  });
+  toTop.addEventListener('click', function(){
+    window.scrollTo({ top:0, behavior:'smooth' });
+  });
+
+  /* 搜索反馈 */
+  var searchInput = document.getElementById('searchInput');
+  var searchBtn = document.getElementById('searchBtn');
+  var searchTip = document.getElementById('searchTip');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#videoGrid .v-card'));
+
+  function doSearch(){
+    var kw = (searchInput.value || '').trim();
+    if(!kw){
+      searchTip.classList.remove('show');
+      cards.forEach(function(c){ c.style.display = ''; });
+      toast('请输入关键词，例如：新手、猫粮、手作');
+      return;
+    }
+    var hit = 0;
+    cards.forEach(function(c){
+      var text = (c.getAttribute('data-title') || '') + (c.getAttribute('data-cat') || '') + c.textContent;
+      if(text.indexOf(kw) > -1){ c.style.display = ''; hit++; }
+      else { c.style.display = 'none'; }
+    });
+    searchTip.textContent = hit > 0
+      ? '为你找到 ' + hit + ' 个与「' + kw + '」相关的内容'
+      : '暂时没有与「' + kw + '」相关的内容，试试“新手”“猫粮”“手作”';
+    searchTip.classList.add('show');
+    if(hit > 0){
+      document.getElementById('videos').scrollIntoView({ behavior:'smooth' });
+    }
+  }
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+  searchInput.addEventListener('input', function(){
+    if(!searchInput.value){ 
+      searchTip.classList.remove('show');
+      cards.forEach(function(c){ c.style.display = ''; });
+    }
+  });
+
+  /* 标签筛选 */
+  var chips = document.querySelectorAll('#filterBar .chip');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var f = chip.getAttribute('data-filter');
+      cards.forEach(function(c){
+        if(f === 'all' || c.getAttribute('data-cat') === f){ c.style.display = ''; }
+        else { c.style.display = 'none'; }
+      });
+      searchTip.classList.remove('show');
+    });
+  });
+
+  /* 点赞 */
+  document.querySelectorAll('.icon-btn.like').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var num = btn.querySelector('.num');
+      var n = parseInt(num.textContent.replace(/[^\d]/g,''), 10) || 0;
+      if(btn.classList.contains('liked')){
+        btn.classList.remove('liked');
+        num.textContent = Math.max(0, n - 1);
+      } else {
+        btn.classList.add('liked');
+        num.textContent = n + 1;
+        toast('已点赞，谢谢你的喜欢');
+      }
+      var svg = btn.querySelector('svg');
+      svg.setAttribute('fill', btn.classList.contains('liked') ? 'currentColor' : 'none');
+    });
+  });
+
+  /* 收藏 */
+  document.querySelectorAll('.icon-btn.save').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      btn.classList.toggle('saved');
+      var svg = btn.querySelector('svg');
+      svg.setAttribute('fill', btn.classList.contains('saved') ? 'currentColor' : 'none');
+      toast(btn.classList.contains('saved') ? '已收藏到我的片单' : '已取消收藏');
+    });
+  });
+
+  /* 弹窗通用 */
+  var masks = document.querySelectorAll('.modal-mask');
+  function openModal(el){
+    el.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(el){
+    el.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  masks.forEach(function(m){
+    m.addEventListener('click', function(e){
+      if(e.target === m) closeModal(m);
+    });
+    m.querySelectorAll('[data-close]').forEach(function(b){
+      b.addEventListener('click', function(){ closeModal(m); });
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      masks.forEach(function(m){ closeModal(m); });
+    }
+  });
+
+  var shareModal = document.getElementById('shareModal');
+  document.getElementById('openShare').addEventListener('click', function(){ openModal(shareModal); });
+  document.getElementById('openShare2').addEventListener('click', function(){ openModal(shareModal); });
+
+  document.querySelectorAll('.share-row button').forEach(function(b){
+    b.addEventListener('click', function(){
+      toast('已唤起' + b.getAttribute('data-share') + '分享面板（示例）');
+    });
+  });
+
+  /* 复制链接 */
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var val = '猫咪网 · 猫咪生活影像社区 · 官方网站';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(val).then(function(){
+        toast('链接已复制，去分享给猫友吧');
+      }).catch(function(){
+        toast('复制失败，请手动选择复制');
+      });
+    } else {
+      var input = document.getElementById('shareLink');
+      input.select();
+      try { document.execCommand('copy'); toast('链接已复制'); }
+      catch(err){ toast('复制失败，请手动选择复制'); }
+    }
+  });
+
+  /* 投稿弹窗 */
+  var submitModal = document.getElementById('submitModal');
+  document.getElementById('openSubmit').addEventListener('click', function(){ openModal(submitModal); });
+  document.getElementById('submitBtn').addEventListener('click', function(){
+    var name = document.getElementById('sName').value.trim();
+    var mail = document.getElementById('sMail').value.trim();
+    var msg = document.getElementById('sMsg').value.trim();
+    if(!name || !mail || !msg){
+      toast('请把称呼、邮箱和说明填写完整');
+      return;
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){
+      toast('邮箱格式好像不太对');
+      return;
+    }
+    closeModal(submitModal);
+    document.getElementById('sName').value = '';
+    document.getElementById('sMail').value = '';
+    document.getElementById('sMsg').value = '';
+    toast('已收到你的信息，编辑会尽快联系你');
+  });
+
+  /* 作者简介弹窗 */
+  var authorData = {
+    '橘座日记': { sub:'日常记录 · 生活影像 · 签约创作者', desc:'和一只十岁的橘猫同住第八年。擅长用固定机位和自然光记录猫的等待、靠近与任性，作品强调不打扰的拍摄方式。平台上共发布 142 支原创作品，其中「猫的一天」系列被收录进年度合辑。' },
+    '猫营养研究所': { sub:'知识科普 · 深度测评 · 签约创作者', desc:'宠物营养方向从业者，长期关注猫粮配方与喂养实践。内容以公开文献与实测数据为基础，坚持标注信息来源，帮助猫友建立可判断的喂养认知。代表专题《看懂猫粮配料表》累计播放超百万。' },
+    '奶盖的家': { sub:'家庭适应 · 新手向 · 推荐创作者', desc:'两只布偶的铲屎官，从完全的新手起步，把接猫、适应、驱虫、疫苗每一步都拍成了可照做的记录。她常说：新手最缺的不是勇气，而是有人告诉你下一步会发生什么。' },
+    '木木手作间': { sub:'手作DIY · 家居适配 · 推荐创作者', desc:'用纸箱、麻绳和旧木料给猫做东西的手作爱好者，坚持零成本与结构可复制。作品附带详细尺寸图与加固说明，被社区称为“最容易被抄作业的猫家具频道”。' }
+  };
+  var authorModal = document.getElementById('authorModal');
+  document.querySelectorAll('.creator .more').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.getAttribute('data-author');
+      var d = authorData[name] || { sub:'平台推荐创作者', desc:'该创作者持续在猫咪网发布原创内容。' };
+      document.getElementById('authorTitle').textContent = name;
+      document.getElementById('authorSub').textContent = d.sub;
+      document.getElementById('authorDesc').textContent = d.desc;
+      openModal(authorModal);
+    });
+  });
+
+  /* 卡片整卡点击提示（除按钮外） */
+  document.querySelectorAll('#videoGrid .v-card .cover, .focus-main .cover, .mini-card .cover, .wall-item').forEach(function(el){
+    el.addEventListener('click', function(){
+      toast('内容详情页正在建设中，敬请期待');
+    });
+  });
+
+})();
+</script>
+</body>
+                </html>
