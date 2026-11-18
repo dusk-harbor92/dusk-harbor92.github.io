@@ -1,0 +1,1516 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>洞洞杂货铺 | 手作生活影像记录 | 慢慢逛，好好生活</title>
+<meta name="description" content="洞洞杂货铺官方网站，记录手作杂货与日常生活的影像社区，汇集创作者的手作过程、旧物改造与市集见闻，呈现真实温暖的生活质感。">
+<style>
+:root{
+  --ink:#2c2620;
+  --ink-soft:#5b5048;
+  --paper:#f6f1e7;
+  --card:#fffdf8;
+  --amber:#c97a2b;
+  --amber-deep:#a25a16;
+  --clay:#8a5a3b;
+  --sage:#7c8b6b;
+  --line:#e3d9c8;
+  --shadow:0 6px 24px rgba(90,70,45,.10);
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-padding-top:118px}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+
+/* ============ 吸顶区 ============ */
+.sticky-wrap{position:sticky;top:0;z-index:100;box-shadow:0 2px 18px rgba(90,70,45,.08)}
+.notice-bar{
+  background:linear-gradient(90deg,var(--amber-deep),var(--amber));
+  color:#fff8ee;
+  font-size:13.5px;
+  padding:8px 20px;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  letter-spacing:.02em;
+}
+.notice-bar .tag{
+  background:rgba(255,255,255,.22);
+  border-radius:999px;
+  padding:1px 10px;
+  font-size:12px;
+  white-space:nowrap;
+  font-weight:600;
+}
+.notice-bar .msg{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70vw}
+.notice-bar .msg b{font-weight:600;border-bottom:1px dashed rgba(255,255,255,.6)}
+
+header.site-header{
+  background:rgba(246,241,231,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;
+  display:flex;align-items:center;gap:22px;
+  padding:12px 22px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:radial-gradient(circle at 30% 30%,var(--amber),var(--clay));
+  display:grid;place-items:center;
+  color:#fff;font-weight:800;font-size:17px;letter-spacing:-1px;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.12);
+}
+.logo-text{font-size:18px;font-weight:800;letter-spacing:.02em;line-height:1.2}
+.logo-text small{display:block;font-size:10.5px;font-weight:500;color:var(--ink-soft);letter-spacing:.18em}
+nav.main-nav{margin-left:auto}
+nav.main-nav ul{display:flex;gap:4px}
+nav.main-nav a{
+  display:block;padding:8px 13px;border-radius:10px;
+  font-size:14.5px;color:var(--ink-soft);font-weight:500;
+  transition:.2s;
+}
+nav.main-nav a:hover,nav.main-nav a.active{color:var(--amber-deep);background:#f0e6d5}
+.nav-search{
+  display:flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:5px 6px 5px 14px;min-width:190px;
+}
+.nav-search input{
+  border:none;outline:none;background:none;font-size:13.5px;width:100px;
+  color:var(--ink);
+}
+.nav-search button{
+  background:var(--amber);color:#fff;border-radius:999px;
+  font-size:12.5px;padding:5px 12px;font-weight:600;transition:.2s;
+}
+.nav-search button:hover{background:var(--amber-deep)}
+.burger{display:none;margin-left:auto;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:#fff}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px auto;border-radius:2px;transition:.25s}
+.search-hint{
+  max-width:1180px;margin:0 auto;padding:0 22px;
+  font-size:13px;color:var(--amber-deep);
+  height:0;overflow:hidden;transition:.25s;
+}
+.search-hint.show{height:34px;padding-top:6px;padding-bottom:6px}
+
+/* ============ 通用容器 ============ */
+.container{max-width:1180px;margin:0 auto;padding:0 22px}
+section{padding:64px 0}
+.sec-head{margin-bottom:34px}
+.sec-head .eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:.18em;
+  color:var(--amber-deep);text-transform:uppercase;
+}
+.sec-head .eyebrow::before{content:"";width:22px;height:2px;background:var(--amber)}
+.sec-head h2{font-size:clamp(22px,3vw,30px);margin-top:8px;letter-spacing:.01em}
+.sec-head p{color:var(--ink-soft);font-size:15px;margin-top:8px;max-width:660px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:11px 22px;border-radius:999px;font-size:14.5px;font-weight:600;
+  transition:.2s;
+}
+.btn-primary{background:var(--amber);color:#fff;box-shadow:0 6px 16px rgba(201,122,43,.28)}
+.btn-primary:hover{background:var(--amber-deep);transform:translateY(-1px)}
+.btn-ghost{border:1.5px solid var(--clay);color:var(--clay)}
+.btn-ghost:hover{background:var(--clay);color:#fff}
+
+/* ============ 首屏 ============ */
+.hero{padding:0;overflow:hidden}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch;
+  min-height:560px;
+}
+.hero-copy{
+  padding:70px 46px 60px 0;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.hero-copy .brand-line{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:.2em;
+  color:var(--amber-deep);margin-bottom:16px;
+}
+.hero-copy .brand-line::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber)}
+h1{
+  font-size:clamp(36px,5.4vw,58px);
+  line-height:1.12;letter-spacing:-.01em;
+  font-weight:900;
+}
+h1 .hl{color:var(--amber)}
+.hero-sub{font-size:17px;color:var(--ink-soft);margin-top:18px;max-width:460px}
+.hero-intro{
+  margin-top:24px;font-size:14.5px;color:var(--ink-soft);
+  border-left:3px solid var(--amber);padding-left:16px;max-width:480px;
+}
+.hero-actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.hero-stats{
+  display:flex;gap:36px;margin-top:40px;flex-wrap:wrap;
+}
+.hero-stats .stat strong{display:block;font-size:26px;font-weight:800;color:var(--amber-deep);line-height:1.2}
+.hero-stats .stat span{font-size:12.5px;color:var(--ink-soft)}
+.hero-visual{position:relative;overflow:hidden;border-radius:0 0 0 40px;min-height:420px}
+.hero-visual img{width:100%;height:100%;object-fit:cover;min-height:420px}
+.hero-visual .float-card{
+  position:absolute;left:20px;bottom:20px;right:20px;
+  background:rgba(255,253,248,.92);backdrop-filter:blur(6px);
+  border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;
+  box-shadow:var(--shadow);
+}
+.float-card .play-dot{
+  width:38px;height:38px;border-radius:50%;background:var(--amber);
+  display:grid;place-items:center;flex-shrink:0;
+}
+.float-card .play-dot::after{
+  content:"";width:0;height:0;border-left:11px solid #fff;
+  border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px;
+}
+.float-card .fc-t{font-size:13.5px;font-weight:700}
+.float-card .fc-s{font-size:12px;color:var(--ink-soft)}
+
+/* ============ 焦点视频 ============ */
+.focus-section{background:#fffdf8;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.focus-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:22px}
+.video-card{
+  background:var(--card);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid var(--line);
+  transition:transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+.video-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(90,70,45,.16)}
+.cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e8dfcf}
+.cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.video-card:hover .cover img{transform:scale(1.045)}
+.cover .badge{
+  position:absolute;left:12px;top:12px;
+  background:rgba(44,38,32,.78);color:#fff;font-size:11.5px;
+  padding:3px 10px;border-radius:999px;font-weight:600;letter-spacing:.04em;
+}
+.cover .dur{
+  position:absolute;right:12px;bottom:12px;
+  background:rgba(44,38,32,.82);color:#fff;font-size:11.5px;
+  padding:2px 8px;border-radius:6px;font-variant-numeric:tabular-nums;
+}
+.cover .v-play{
+  position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:.25s;
+  background:linear-gradient(180deg,transparent 40%,rgba(44,38,32,.35));
+}
+.video-card:hover .v-play{opacity:1}
+.v-play i{
+  width:54px;height:54px;border-radius:50%;background:rgba(255,253,248,.92);
+  display:grid;place-items:center;
+}
+.v-play i::after{
+  content:"";width:0;height:0;border-left:15px solid var(--amber-deep);
+  border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px;
+}
+.video-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.video-body h3{font-size:16px;line-height:1.45;font-weight:700}
+.video-body h3 a:hover{color:var(--amber-deep)}
+.video-body p{font-size:13.5px;color:var(--ink-soft);margin-top:7px;flex:1}
+.video-meta{
+  display:flex;align-items:center;gap:9px;margin-top:14px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--ink-soft);
+}
+.avatar{
+  width:26px;height:26px;border-radius:50%;flex-shrink:0;
+  display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff;
+}
+.video-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--line)}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.tag{
+  font-size:11.5px;padding:2px 9px;border-radius:999px;
+  background:#f2e9d9;color:var(--clay);font-weight:600;
+}
+.card-share{
+  margin-top:14px;display:flex;gap:8px;border-top:1px dashed var(--line);padding-top:12px;
+}
+.icon-btn{
+  display:inline-flex;align-items:center;gap:5px;font-size:12.5px;
+  color:var(--ink-soft);padding:4px 10px;border-radius:8px;transition:.2s;
+}
+.icon-btn:hover{background:#f2e9d9;color:var(--amber-deep)}
+.icon-btn.liked{color:#c0432f;font-weight:700}
+.icon-btn.saved{color:var(--amber-deep);font-weight:700}
+.focus-main .video-body h3{font-size:20px}
+.focus-main .video-body p{font-size:14px}
+.focus-list{display:flex;flex-direction:column;gap:16px}
+.focus-list .video-card{flex-direction:row;align-items:stretch}
+.focus-list .cover{width:44%;aspect-ratio:auto;flex-shrink:0}
+.focus-list .video-body{padding:12px 14px}
+.focus-list .video-body h3{font-size:14.5px}
+.focus-list .video-body p{font-size:12.5px;-webkit-line-clamp:2;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+.focus-list .tag-row{margin-top:8px}
+.focus-list .card-share{margin-top:8px;padding-top:8px}
+
+/* ============ 视频流 ============ */
+.stream-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.filter-chip{
+  font-size:13.5px;padding:7px 16px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+  transition:.2s;font-weight:500;
+}
+.filter-chip:hover{border-color:var(--amber);color:var(--amber-deep)}
+.filter-chip.on{background:var(--amber);border-color:var(--amber);color:#fff;font-weight:600}
+
+/* ============ 专题 ============ */
+.feature-section{background:linear-gradient(180deg,#f0e8da,#f6f1e7)}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature-card{
+  background:var(--card);border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  display:flex;flex-direction:column;transition:.25s;
+}
+.feature-card:hover{transform:translateY(-3px)}
+.feature-card .cover{aspect-ratio:16/9}
+.feature-card .fb{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column}
+.feature-card h3{font-size:16.5px;font-weight:700}
+.feature-card p{font-size:13.5px;color:var(--ink-soft);margin-top:7px;flex:1}
+.status-line{
+  margin-top:14px;display:flex;align-items:center;justify-content:space-between;
+  font-size:12.5px;color:var(--ink-soft);
+}
+.status-pill{
+  font-size:11.5px;padding:2px 10px;border-radius:999px;font-weight:600;
+}
+.status-pill.ing{background:#e9f0e3;color:#4f6a3f}
+.status-pill.pre{background:#f7ead9;color:var(--amber-deep)}
+
+/* ============ 创作者 ============ */
+.maker-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.maker-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 18px;text-align:center;box-shadow:var(--shadow);
+  transition:.25s;cursor:pointer;
+}
+.maker-card:hover{transform:translateY(-4px);border-color:#dcc9a8}
+.maker-avatar{
+  width:64px;height:64px;border-radius:22px;margin:0 auto 12px;
+  display:grid;place-items:center;color:#fff;font-size:24px;font-weight:800;
+  box-shadow:inset 0 -3px 0 rgba(0,0,0,.14);
+}
+.maker-card h3{font-size:15.5px;font-weight:700}
+.maker-card .field{font-size:12px;color:var(--amber-deep);margin-top:3px;font-weight:600}
+.maker-card .bio{font-size:12.5px;color:var(--ink-soft);margin-top:10px;line-height:1.65}
+.maker-nums{display:flex;justify-content:center;gap:18px;margin-top:14px;font-size:12px;color:var(--ink-soft)}
+.maker-nums b{display:block;color:var(--ink);font-size:14px}
+
+/* ============ 影像墙 ============ */
+.wall-section{background:#fffdf8;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.wall{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.wall-item{
+  position:relative;border-radius:12px;overflow:hidden;
+  background:#e8dfcf;box-shadow:var(--shadow);min-height:120px;
+}
+.wall-item img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.wall-item:hover img{transform:scale(1.06)}
+.wall-item .cap{
+  position:absolute;inset:auto 0 0 0;padding:26px 12px 10px;
+  background:linear-gradient(transparent,rgba(30,24,18,.75));
+  color:#fff;font-size:12px;font-weight:600;line-height:1.4;
+}
+.wall-item.w3{grid-column:span 3;min-height:250px}
+.wall-item.w2{grid-column:span 2;min-height:180px}
+.wall-item.w1{grid-column:span 1;min-height:150px}
+.wall-item.w2t{grid-column:span 2;grid-row:span 2;min-height:320px}
+.wall-item.tall{min-height:250px}
+
+/* ============ 故事区 ============ */
+.story-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.story-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 26px 22px;box-shadow:var(--shadow);position:relative;
+}
+.story-card::before{
+  content:"“";position:absolute;right:22px;top:2px;font-size:64px;
+  color:#f0e2cb;font-family:Georgia,serif;line-height:1;
+}
+.story-card h3{font-size:16.5px;font-weight:700;margin-bottom:10px}
+.story-card p{font-size:14px;color:var(--ink-soft);line-height:1.85}
+.story-card .by{display:flex;align-items:center;gap:9px;margin-top:16px;font-size:12.5px;color:var(--ink-soft)}
+
+/* ============ 评价 ============ */
+.review-section{background:linear-gradient(180deg,#f6f1e7,#f0e8da)}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review-card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;
+}
+.review-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.review-top .avatar{width:34px;height:34px;border-radius:50%;font-size:14px}
+.review-top .rn{font-size:13.5px;font-weight:700}
+.review-top .rm{font-size:11.5px;color:var(--ink-soft)}
+.stars{color:var(--amber);font-size:12.5px;letter-spacing:2px;margin-bottom:6px}
+.review-card p{font-size:13.5px;color:var(--ink-soft);flex:1}
+.review-foot{margin-top:12px;font-size:11.5px;color:#a4988a;border-top:1px dashed var(--line);padding-top:9px}
+
+/* ============ 动态 / FAQ / 联系 ============ */
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start}
+.updates li{
+  display:flex;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line);
+}
+.updates li:last-child{border-bottom:none}
+.updates .date{
+  font-size:12px;font-weight:700;color:var(--amber-deep);
+  background:#f2e9d9;border-radius:8px;padding:3px 9px;height:fit-content;
+  white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+.updates .ut{font-size:14.5px;font-weight:600}
+.updates .ud{font-size:13px;color:var(--ink-soft);margin-top:3px}
+details.faq{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  margin-bottom:10px;overflow:hidden;
+}
+details.faq summary{
+  padding:14px 18px;font-size:14.5px;font-weight:600;cursor:pointer;
+  list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{
+  content:"＋";color:var(--amber-deep);font-weight:700;transition:.2s;
+}
+details.faq[open] summary::after{content:"－"}
+details.faq .faq-body{padding:0 18px 16px;font-size:13.5px;color:var(--ink-soft)}
+.contact-card{
+  background:var(--ink);color:#f6f1e7;border-radius:var(--radius);
+  padding:32px 30px;box-shadow:var(--shadow);
+}
+.contact-card h3{font-size:19px;font-weight:800;margin-bottom:8px}
+.contact-card p{font-size:13.5px;color:#cdc2b4;line-height:1.8}
+.contact-list{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.contact-list div{display:flex;gap:12px;font-size:13.5px;color:#e4dbcd}
+.contact-list b{color:#fff;font-weight:600;min-width:56px}
+.contact-card .btn-primary{margin-top:22px;justify-content:center;width:100%}
+
+/* ============ 合作墙 ============ */
+.partner-row{
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  padding-top:10px;
+}
+.partner{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:14px 26px;font-size:14px;font-weight:700;color:var(--clay);
+  letter-spacing:.04em;box-shadow:var(--shadow);
+}
+
+/* ============ 页脚 ============ */
+footer.site-footer{
+  background:var(--ink);color:#c9bfb1;padding:56px 0 28px;font-size:13.5px;
+}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
+.site-footer h4{color:#fff;font-size:14px;margin-bottom:14px;font-weight:700}
+.site-footer .f-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.site-footer .f-brand .logo-mark{width:34px;height:34px;font-size:15px;border-radius:10px}
+.site-footer .f-brand span{color:#fff;font-weight:800;font-size:16px}
+.site-footer p{line-height:1.9;color:#a99e90}
+.site-footer ul li{margin-bottom:9px}
+.site-footer ul a:hover{color:var(--amber)}
+.f-bottom{
+  border-top:1px solid #443c34;margin-top:40px;padding-top:20px;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12.5px;color:#948a7d;
+}
+
+/* ============ 工具 ============ */
+.toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+  background:var(--ink);color:#fff;padding:11px 22px;border-radius:999px;
+  font-size:13.5px;opacity:0;pointer-events:none;transition:.3s;z-index:300;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+#toTop{
+  position:fixed;right:22px;bottom:24px;width:46px;height:46px;border-radius:50%;
+  background:var(--amber);color:#fff;font-size:19px;display:grid;place-items:center;
+  box-shadow:0 8px 22px rgba(201,122,43,.4);opacity:0;pointer-events:none;
+  transition:.3s;z-index:90;
+}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{background:var(--amber-deep)}
+
+/* ============ 弹窗 ============ */
+.modal-mask{
+  position:fixed;inset:0;background:rgba(30,24,18,.55);z-index:400;
+  display:none;align-items:center;justify-content:center;padding:20px;
+}
+.modal-mask.show{display:flex}
+.modal{
+  background:var(--paper);border-radius:18px;max-width:460px;width:100%;
+  padding:28px 26px;box-shadow:0 24px 60px rgba(0,0,0,.3);
+  animation:pop .25s ease;
+  max-height:86vh;overflow:auto;
+}
+@keyframes pop{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.modal h3{font-size:18px;margin-bottom:6px;font-weight:800}
+.modal .m-sub{font-size:13px;color:var(--ink-soft);margin-bottom:18px}
+.modal label{display:block;font-size:13px;font-weight:600;margin:12px 0 6px}
+.modal input,.modal textarea{
+  width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;
+  padding:10px 12px;font-family:inherit;font-size:14px;outline:none;
+  transition:.2s;color:var(--ink);
+}
+.modal input:focus,.modal textarea:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(201,122,43,.14)}
+.modal textarea{resize:vertical;min-height:90px}
+.modal-actions{display:flex;gap:10px;margin-top:20px}
+.modal-actions .btn{flex:1;justify-content:center}
+.share-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.share-item{
+  background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 6px;
+  text-align:center;font-size:12.5px;font-weight:600;color:var(--ink-soft);transition:.2s;
+}
+.share-item:hover{border-color:var(--amber);color:var(--amber-deep);transform:translateY(-2px)}
+.share-item .si{display:block;font-size:20px;margin-bottom:4px}
+
+/* ============ 响应式 ============ */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-copy{padding:50px 0 40px}
+  .hero-visual{border-radius:0 0 0 0;min-height:320px}
+  .hero-visual img{min-height:320px}
+  .focus-grid{grid-template-columns:1fr}
+  .focus-list{flex-direction:row;overflow-x:auto;padding-bottom:6px;gap:14px}
+  .focus-list .video-card{flex-direction:column;min-width:250px}
+  .focus-list .cover{width:100%;aspect-ratio:16/9}
+  .stream-grid,.feature-grid,.review-grid{grid-template-columns:repeat(2,1fr)}
+  .maker-grid{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .wall{grid-template-columns:repeat(4,1fr)}
+  .wall-item.w3,.wall-item.w2t{grid-column:span 2;grid-row:span 1;min-height:200px}
+  .wall-item.w2{grid-column:span 2}
+  .wall-item.w1{grid-column:span 1;min-height:130px}
+}
+@media(max-width:760px){
+  html{scroll-padding-top:96px}
+  nav.main-nav{
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--paper);border-bottom:1px solid var(--line);
+    padding:10px 18px 16px;display:none;box-shadow:0 12px 24px rgba(90,70,45,.1);
+  }
+  nav.main-nav.open{display:block}
+  nav.main-nav ul{flex-direction:column;gap:2px}
+  nav.main-nav a{padding:11px 12px}
+  .burger{display:block}
+  .nav-search{display:none}
+  .nav-inner{gap:10px}
+  .notice-bar{font-size:12px;gap:8px;padding:7px 14px}
+  .notice-bar .msg{max-width:58vw}
+  .hero-stats{gap:24px}
+  .stream-grid,.feature-grid,.review-grid{grid-template-columns:1fr}
+  .story-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .wall{grid-template-columns:repeat(2,1fr)}
+  .wall-item.w3,.wall-item.w2,.wall-item.w2t{grid-column:span 2}
+  .wall-item.w1{grid-column:span 1}
+  section{padding:46px 0}
+  .sec-head{margin-bottom:24px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ================= 吸顶：公告条 + 页头 ================= -->
+<div class="sticky-wrap">
+  <div class="notice-bar">
+    <span class="tag">上新</span>
+    <span class="msg">本周新增 <b>「旧木箱改造系列」</b> 6 集手作影像 · 秋季市集摊主招募 <b>10月12日</b> 截止</span>
+  </div>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="#top" class="logo" aria-label="洞洞杂货铺首页">
+        <span class="logo-mark">洞洞</span>
+        <span class="logo-text">洞洞杂货铺<small>HANDMADE VIDEO</small></span>
+      </a>
+      <button class="burger" id="burger" aria-label="展开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="#top" class="active">首页</a></li>
+          <li><a href="#focus">手作焦点</a></li>
+          <li><a href="#stream">影像集</a></li>
+          <li><a href="#feature">专题企划</a></li>
+          <li><a href="#makers">创作者</a></li>
+          <li><a href="#wall">作品墙</a></li>
+          <li><a href="#contact">联络</a></li>
+        </ul>
+      </nav>
+      <form class="nav-search" id="navSearch" onsubmit="return false">
+        <input type="text" id="searchInput" placeholder="搜手作 / 旧物 / 市集" aria-label="站内搜索">
+        <button type="button" id="searchBtn">搜索</button>
+      </form>
+    </div>
+    <div class="search-hint" id="searchHint" role="status" aria-live="polite"></div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- ================= 首屏 ================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="brand-line">洞洞杂货铺 · 官方网站</span>
+          <h1>洞洞杂货铺，把日子<span class="hl">慢慢过成手作</span></h1>
+          <p class="hero-sub">一间以影像记录手作与杂货的小店，也是一群人的生活方式社区。</p>
+          <p class="hero-intro">
+            洞洞杂货铺是一家持续运营的原创手作影像品牌，我们以专业镜头记录木作、布艺、旧物改造与市集生活，为创作者搭建品质内容生态，也为每一位热爱生活的人留存真实、温暖的日常。这里是品牌官网，更是同好相聚的地方。
+          </p>
+          <div class="hero-actions">
+            <a href="#stream" class="btn btn-primary">逛影像集 →</a>
+            <a href="#makers" class="btn btn-ghost">认识创作者</a>
+            <button class="btn btn-ghost" data-open="submit">我要投稿</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>1,286</strong><span>原创手作影像</span></div>
+            <div class="stat"><strong>47 位</strong><span>常驻创作者</span></div>
+            <div class="stat"><strong>9.2 万</strong><span>社区同好</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 560'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f3e3c8'/%3E%3Cstop offset='1' stop-color='%23d9a86a'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23c97a2b'/%3E%3Cstop offset='1' stop-color='%238a5a3b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='720' height='560' fill='url(%23a)'/%3E%3Ccircle cx='560' cy='140' r='96' fill='%23fff3dd' opacity='.65'/%3E%3Crect x='60' y='300' width='270' height='190' rx='12' fill='url(%23b)' opacity='.92'/%3E%3Crect x='60' y='300' width='270' height='26' rx='8' fill='%23f6e6ca' opacity='.8'/%3E%3Crect x='88' y='352' width='74' height='112' rx='8' fill='%23f3e3c8'/%3E%3Crect x='176' y='352' width='120' height='52' rx='6' fill='%23f3e3c8' opacity='.85'/%3E%3Ccircle cx='420' cy='392' r='86' fill='%237c8b6b' opacity='.9'/%3E%3Ccircle cx='420' cy='392' r='54' fill='%23f3e3c8' opacity='.9'/%3E%3Cpath d='M352 200 q120 -70 250 20' stroke='%238a5a3b' stroke-width='6' fill='none' opacity='.6'/%3E%3Ccircle cx='602' cy='220' r='10' fill='%238a5a3b' opacity='.7'/%3E%3Ccircle cx='352' cy='200' r='10' fill='%238a5a3b' opacity='.7'/%3E%3Crect x='420' y='470' width='200' height='52' rx='10' fill='%23a25a16' opacity='.75'/%3E%3C/svg%3E" alt="洞洞杂货铺木质手作工作台与杂货陈列的手绘主视觉">
+          <div class="float-card">
+            <span class="play-dot" aria-hidden="true"></span>
+            <div>
+              <div class="fc-t">本期主打 · 旧木箱改造档案</div>
+              <div class="fc-s">06 集连载中 · 单集 6-11 分钟</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 手作焦点 ================= -->
+  <section class="focus-section" id="focus">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Handpicked</span>
+        <h2>手作焦点 · 编辑部本周推荐</h2>
+        <p>从一块旧木头、一段剩布、一只磕了边的瓷碗开始，我们把过程拍下来，也把耐心留下来。</p>
+      </div>
+      <div class="focus-grid">
+        <article class="video-card focus-main">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23372e26'/%3E%3Cstop offset='1' stop-color='%236b4a2c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='360' fill='url(%23g1)'/%3E%3Crect x='70' y='150' width='200' height='130' rx='10' fill='%23c97a2b' opacity='.85'/%3E%3Crect x='90' y='172' width='160' height='20' rx='5' fill='%23f3e3c8' opacity='.7'/%3E%3Crect x='90' y='206' width='110' height='14' rx='5' fill='%23f3e3c8' opacity='.5'/%3E%3Ccircle cx='410' cy='180' r='64' fill='%237c8b6b' opacity='.9'/%3E%3Ccircle cx='410' cy='180' r='36' fill='%23f3e3c8' opacity='.9'/%3E%3Cpath d='M300 120 h120 M300 260 h140' stroke='%23f3e3c8' stroke-width='5' opacity='.45'/%3E%3C/svg%3E" alt="旧木箱改造为收纳柜的对比画面">
+            <span class="badge">编辑精选</span>
+            <span class="dur">11:24</span>
+            <span class="v-play"><i></i></span>
+          </div>
+          <div class="video-body">
+            <h3><a href="#stream">一只旧木箱的第二次生命：从霉斑到胡桃木色收纳柜</a></h3>
+            <p>上个月从城郊旧货市场带回一只开裂的樟木箱，箱盖上的漆已经翻起。这一集完整记录了除霉、补缝、打磨与上蜡的全过程，包括三种常见蜡油配比和涂布手法。请耐心看到最后，成品会在窗边的光里停一会儿。</p>
+            <div class="tag-row">
+              <span class="tag">旧物改造</span><span class="tag">木作</span><span class="tag">教程干货</span>
+            </div>
+            <div class="video-meta">
+              <span class="avatar" style="background:#8a5a3b">阿</span>
+              <span>阿木的木头课</span><span class="dot"></span>
+              <span>8.6万 播放</span><span class="dot"></span>
+              <span>2025-09-18</span>
+            </div>
+            <div class="card-share">
+              <button class="icon-btn js-like" data-count="3284"><span class="ic">♡</span> <span class="num">3,284</span></button>
+              <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              <button class="icon-btn js-comment" data-title="一只旧木箱的第二次生命">评论</button>
+              <button class="icon-btn js-share" data-title="一只旧木箱的第二次生命">分享</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="focus-list">
+          <article class="video-card">
+            <div class="cover">
+              <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23e7d6b8'/%3E%3Ccircle cx='90' cy='120' r='46' fill='%23a25a16' opacity='.85'/%3E%3Ccircle cx='90' cy='120' r='22' fill='%23f6f1e7'/%3E%3Crect x='170' y='70' width='150' height='100' rx='8' fill='%237c8b6b' opacity='.8'/%3E%3Crect x='190' y='96' width='110' height='10' rx='4' fill='%23f6f1e7' opacity='.8'/%3E%3Crect x='190' y='118' width='80' height='10' rx='4' fill='%23f6f1e7' opacity='.6'/%3E%3C/svg%3E" alt="剩布拼贴杯垫的桌面近景">
+              <span class="dur">07:41</span>
+              <span class="v-play"><i></i></span>
+            </div>
+            <div class="video-body">
+              <h3><a href="#stream">剩布别扔：六种拼贴杯垫的锁边手法</a></h3>
+              <p>布头拼出好看图案的关键，其实在锁边先后顺序。</p>
+              <div class="tag-row"><span class="tag">布艺</span><span class="tag">零浪费</span></div>
+              <div class="card-share">
+                <button class="icon-btn js-like" data-count="1420"><span class="ic">♡</span> <span class="num">1,420</span></button>
+                <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              </div>
+            </div>
+          </article>
+          <article class="video-card">
+            <div class="cover">
+              <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23cfd8c2'/%3E%3Cpath d='M0 170 q100 -60 200 0 t200 0 V225 H0 Z' fill='%237c8b6b' opacity='.7'/%3E%3Ccircle cx='300' cy='70' r='40' fill='%23f3e3c8'/%3E%3Crect x='50' y='64' width='120' height='76' rx='8' fill='%238a5a3b' opacity='.8'/%3E%3C/svg%3E" alt="秋日市集摊位与手作器物的场景">
+              <span class="dur">14:03</span>
+              <span class="v-play"><i></i></span>
+            </div>
+            <div class="video-body">
+              <h3><a href="#stream">秋季市集摆摊全记录：定价、陈列与聊天</a></h3>
+              <p>第一次摆摊最容易踩的三个坑，都在这集里。</p>
+              <div class="tag-row"><span class="tag">市集</span><span class="tag">经验分享</span></div>
+              <div class="card-share">
+                <button class="icon-btn js-like" data-count="986"><span class="ic">♡</span> <span class="num">986</span></button>
+                <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              </div>
+            </div>
+          </article>
+          <article class="video-card">
+            <div class="cover">
+              <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23f0dcc6'/%3E%3Crect x='40' y='50' width='130' height='130' rx='12' fill='%23c97a2b' opacity='.8'/%3E%3Ccircle cx='290' cy='115' r='58' fill='%238a5a3b' opacity='.75'/%3E%3Ccircle cx='290' cy='115' r='30' fill='%23f6f1e7'/%3E%3C/svg%3E" alt="陶土小碟与手作工具陈列">
+              <span class="dur">09:16</span>
+              <span class="v-play"><i></i></span>
+            </div>
+            <div class="video-body">
+              <h3><a href="#stream">新手拉坯第一次就成功？先学会定中心</a></h3>
+              <p>陶艺老师拆解手上动作，慢放三遍。</p>
+              <div class="tag-row"><span class="tag">陶艺</span><span class="tag">新手友好</span></div>
+              <div class="card-share">
+                <button class="icon-btn js-like" data-count="2317"><span class="ic">♡</span> <span class="num">2,317</span></button>
+                <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 影像集 ================= -->
+  <section id="stream">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Video Library</span>
+        <h2>最新影像集 · 手作与日常</h2>
+        <p>每周三、周六更新。所有内容均为洞洞杂货铺原创拍摄与剪辑，高清正版发布，转载请注明出处。</p>
+      </div>
+      <div class="filter-row" id="filterRow">
+        <button class="filter-chip on" data-filter="all">全部</button>
+        <button class="filter-chip" data-filter="木作">木作</button>
+        <button class="filter-chip" data-filter="布艺">布艺</button>
+        <button class="filter-chip" data-filter="陶艺">陶艺</button>
+        <button class="filter-chip" data-filter="市集">市集</button>
+        <button class="filter-chip" data-filter="日常">日常</button>
+      </div>
+      <div class="stream-grid" id="streamGrid">
+
+        <article class="video-card" data-cat="木作">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%233a312a'/%3E%3Crect x='90' y='100' width='250' height='160' rx='10' fill='%23a25a16'/%3E%3Crect x='110' y='130' width='180' height='18' rx='5' fill='%23f3e3c8' opacity='.7'/%3E%3Crect x='110' y='164' width='120' height='14' rx='5' fill='%23f3e3c8' opacity='.5'/%3E%3Ccircle cx='470' cy='180' r='70' fill='%23c97a2b' opacity='.55'/%3E%3C/svg%3E" alt="木勺打磨过程中的木屑特写">
+            <span class="badge">新作</span><span class="dur">08:52</span>
+            <span class="v-play"><i></i></span>
+          </div>
+          <div class="video-body">
+            <h3><a href="#stream">一把木勺的七天：从选料到上油</a></h3>
+            <p>为什么老师傅说「勺子要顺着木纹长」？这集带你看清每一刀的方向。</p>
+            <div class="tag-row"><span class="tag">木作</span><span class="tag">教程干货</span></div>
+            <div class="video-meta">
+              <span class="avatar" style="background:#8a5a3b">木</span><span>老周木工房</span><span class="dot"></span><span>4.1万 播放</span>
+            </div>
+            <div class="card-share">
+              <button class="icon-btn js-like" data-count="1893"><span class="ic">♡</span> <span class="num">1,893</span></button>
+              <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              <button class="icon-btn js-comment" data-title="一把木勺的七天">评论</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="video-card" data-cat="布艺">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23efe2cf'/%3E%3Cpath d='M0 0 h640 v360 h-640z' fill='none'/%3E%3Cg stroke='%238a5a3b' stroke-width='10' opacity='.35'%3E%3Cpath d='M80 60 v240 M180 60 v240 M280 60 v240 M380 60 v240'/%3E%3C/g%3E%3Ccircle cx='470' cy='180' r='80' fill='%237c8b6b' opacity='.7'/%3E%3Cpath d='M430 180 h80 M470 140 v80' stroke='%23f6f1e7' stroke-width='12'/%3E%3C/svg%3E" alt="棉麻布样与缝纫线的配色排布">
+            <span class="dur">06:27</span>
+            <span class="v-play"><i></i></span>
+          </div>
+          <div class="video-body">
+            <h3><a href="#stream">棉麻配色课：三种不出错的搭配思路</a></h3>
+            <p>把手边所有布头摊开，颜色自然就说话了。</p>
+            <div class="tag-row"><span class="tag">布艺</span><span class="tag">色彩</span></div>
+            <div class="video-meta">
+              <span class="avatar" style="background:#7c8b6b">棉</span><span>棉线小院</span><span class="dot"></span><span>3.2万 播放</span>
+            </div>
+            <div class="card-share">
+              <button class="icon-btn js-like" data-count="1105"><span class="ic">♡</span> <span class="num">1,105</span></button>
+              <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              <button class="icon-btn js-comment" data-title="棉麻配色课">评论</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="video-card" data-cat="陶艺">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23dcd3c3'/%3E%3Ccircle cx='320' cy='190' r='110' fill='%23b98b58' opacity='.75'/%3E%3Ccircle cx='320' cy='190' r='58' fill='%23e8dfcf'/%3E%3Cpath d='M120 300 q200 -60 400 0' stroke='%238a5a3b' stroke-width='8' fill='none' opacity='.5'/%3E%3C/svg%3E" alt="陶轮上旋转的泥坯俯拍">
+            <span class="dur">10:08</span>
+            <span class="v-play"><i></i></span>
+          </div>
+          <div class="video-body">
+            <h3><a href="#stream">泥坯总歪？先从「定中心」这三步练</a></h3>
+            <p>陶艺学徒最常卡住的环节，拆解成可重复的动作。</p>
+            <div class="tag-row"><span class="tag">陶艺</span><span class="tag">技巧</span></div>
+            <div class="video-meta">
+              <span class="avatar" style="background:#a25a16">陶</span><span>泥与火工作室</span><span class="dot"></span><span>5.7万 播放</span>
+            </div>
+            <div class="card-share">
+              <button class="icon-btn js-like" data-count="2460"><span class="ic">♡</span> <span class="num">2,460</span></button>
+              <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              <button class="icon-btn js-comment" data-title="泥坯总歪">评论</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="video-card" data-cat="市集">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23e8d9bd'/%3E%3Cpath d='M0 110 h640' stroke='%23a25a16' stroke-width='4' opacity='.3'/%3E%3Cg fill='%23c97a2b' opacity='.85'%3E%3Crect x='70' y='150' width='90' height='120' rx='8'/%3E%3Crect x='200' y='150' width='90' height='120' rx='8'/%3E%3Crect x='330' y='150' width='90' height='120' rx='8'/%3E%3Crect x='460' y='150' width='90' height='120' rx='8'/%3E%3C/g%3E%3Cpath d='M40 90 q150 60 320 0 t240 0' stroke='%238a5a3b' stroke-width='6' fill='none' opacity='.5'/%3E%3C/svg%3E" alt="周末手作市集一排木质摊位">
+            <span class="badge">现场</span><span class="dur">13:45</span>
+            <span class="v-play"><i></i></span>
+          </div>
+          <div class="video-body">
+            <h3><a href="#stream">从早上六点到收摊：手作摊主的一天</a></h3>
+            <p>凌晨装车、摆陈列、和客人聊三小时，再慢慢收回来。</p>
+            <div class="tag-row"><span class="tag">市集</span><span class="tag">日常记录</span></div>
+            <div class="video-meta">
+              <span class="avatar" style="background:#c97a2b">拾</span><span>拾光市集</span><span class="dot"></span><span>6.4万 播放</span>
+            </div>
+            <div class="card-share">
+              <button class="icon-btn js-like" data-count="3120"><span class="ic">♡</span> <span class="num">3,120</span></button>
+              <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              <button class="icon-btn js-comment" data-title="手作摊主的一天">评论</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="video-card" data-cat="日常">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23f2ead9'/%3E%3Crect x='80' y='60' width='180' height='240' rx='6' fill='%23e2d6c0'/%3E%3Cpath d='M110 100 h120 M110 140 h120 M110 180 h80' stroke='%238a5a3b' stroke-width='6' opacity='.45'/%3E%3Ccircle cx='440' cy='180' r='86' fill='%237c8b6b' opacity='.6'/%3E%3Crect x='360' y='230' width='180' height='60' rx='8' fill='%23c97a2b' opacity='.7'/%3E%3C/svg%3E" alt="窗边杂货与翻开的笔记本">
+            <span class="dur">05:33</span>
+            <span class="v-play"><i></i></span>
+          </div>
+          <div class="video-body">
+            <h3><a href="#stream">关店后的十分钟：整理货架也是整理心情</a></h3>
+            <p>不加速、不配乐，只是把每样东西放回自己的位置。</p>
+            <div class="tag-row"><span class="tag">日常</span><span class="tag">治愈影像</span></div>
+            <div class="video-meta">
+              <span class="avatar" style="background:#b98b58">洞</span><span>洞洞杂货铺</span><span class="dot"></span><span>2.8万 播放</span>
+            </div>
+            <div class="card-share">
+              <button class="icon-btn js-like" data-count="1577"><span class="ic">♡</span> <span class="num">1,577</span></button>
+              <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              <button class="icon-btn js-comment" data-title="关店后的十分钟">评论</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="video-card" data-cat="木作">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23433a30'/%3E%3Cpath d='M120 250 L320 90 L520 250' stroke='%23c97a2b' stroke-width='12' fill='none' opacity='.8'/%3E%3Ccircle cx='320' cy='250' r='46' fill='%23f3e3c8' opacity='.8'/%3E%3Crect x='160' y='270' width='320' height='14' rx='6' fill='%23a25a16' opacity='.8'/%3E%3C/svg%3E" alt="榫卯结构拼装的特写画面">
+            <span class="dur">12:19</span>
+            <span class="v-play"><i></i></span>
+          </div>
+          <div class="video-body">
+            <h3><a href="#stream">不用一根钉：三个最实用的榫卯入门</a></h3>
+            <p>从直榫到燕尾榫，用手边工具就能练起来。</p>
+            <div class="tag-row"><span class="tag">木作</span><span class="tag">知识科普</span></div>
+            <div class="video-meta">
+              <span class="avatar" style="background:#8a5a3b">木</span><span>老周木工房</span><span class="dot"></span><span>7.3万 播放</span>
+            </div>
+            <div class="card-share">
+              <button class="icon-btn js-like" data-count="4088"><span class="ic">♡</span> <span class="num">4,088</span></button>
+              <button class="icon-btn js-save"><span class="ic">☆</span> <span class="tx">收藏</span></button>
+              <button class="icon-btn js-comment" data-title="三个最实用的榫卯入门">评论</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 专题企划 ================= -->
+  <section class="feature-section" id="feature">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Special Projects</span>
+        <h2>专题企划 · 一段时间的深入记录</h2>
+        <p>不做快剪，用连载的方式把一件事讲透。专题内容由品牌团队与常驻创作者共同完成。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23e9dcc4'/%3E%3Crect x='60' y='80' width='170' height='200' rx='8' fill='%238a5a3b' opacity='.85'/%3E%3Crect x='250' y='120' width='160' height='160' rx='8' fill='%23c97a2b' opacity='.8'/%3E%3Crect x='430' y='70' width='150' height='210' rx='8' fill='%237c8b6b' opacity='.75'/%3E%3C/svg%3E" alt="旧物改造专题的三件代表器物">
+            <span class="badge">连载中</span>
+          </div>
+          <div class="fb">
+            <h3>旧木箱改造档案</h3>
+            <p>收集城市里被丢弃的木箱、抽屉与窗框，记录它们被修复、拆解、重组的全过程，也记录那些跟着旧物一起留下的生活痕迹。</p>
+            <div class="status-line">
+              <span>更新至 06 集 · 共 10 集</span>
+              <span class="status-pill ing">进行中</span>
+            </div>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23dfe5d8'/%3E%3Ccircle cx='200' cy='180' r='90' fill='%237c8b6b' opacity='.75'/%3E%3Ccircle cx='420' cy='180' r='70' fill='%23c97a2b' opacity='.6'/%3E%3Cpath d='M120 300 q200 -40 400 0' stroke='%238a5a3b' stroke-width='8' fill='none' opacity='.4'/%3E%3C/svg%3E" alt="摊主群像专题的圆形拼贴">
+            <span class="badge">人物访谈</span>
+          </div>
+          <div class="fb">
+            <h3>摊主们的十二个月</h3>
+            <p>跟着七位手作摊主走过一整年：春季备货、夏季淡场、秋季赶集、冬季收摊。聊收入，也聊坚持，聊那些说不清的喜欢。</p>
+            <div class="status-line">
+              <span>更新至 09 集 · 共 12 集</span>
+              <span class="status-pill ing">进行中</span>
+            </div>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23f0e3cd'/%3E%3Cg fill='%23a25a16' opacity='.7'%3E%3Cpath d='M160 260 q30 -120 80 -120 t80 120 z'/%3E%3Cpath d='M340 260 q30 -90 70 -90 t70 90 z'/%3E%3C/g%3E%3Ccircle cx='500' cy='110' r='34' fill='%237c8b6b' opacity='.8'/%3E%3C/svg%3E" alt="新手第一课专题的手作工具剪影">
+            <span class="badge">筹备中</span>
+          </div>
+          <div class="fb">
+            <h3>新手第一课</h3>
+            <p>为零基础的人准备的系列：工具怎么买才不浪费、第一次做坏了怎么办、作品卖不出去的那些夜晚。真实，不粉饰。</p>
+            <div class="status-line">
+              <span>预计 10 月上线 · 共 8 集</span>
+              <span class="status-pill pre">预约中</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 创作者矩阵 ================= -->
+  <section id="makers">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Creators</span>
+        <h2>常驻创作者 · 一起把手艺拍下来</h2>
+        <p>他们来自不同的手艺方向，有全职手作人，也有下班后开灯做活的上班族。点击卡片可查看创作者档案与代表作品。</p>
+      </div>
+      <div class="maker-grid">
+        <article class="maker-card js-maker" data-name="阿木的木头课" data-field="木作 / 旧物改造" data-bio="在城郊租了一间带院子的老屋做木工，习惯把每个步骤拍完整。相信工具可以少，耐心不可以。">
+          <div class="maker-avatar" style="background:linear-gradient(135deg,#a25a16,#8a5a3b)">木</div>
+          <h3>阿木的木头课</h3>
+          <div class="field">木作 / 旧物改造</div>
+          <p class="bio">在城郊租了一间带院子的老屋做木工，习惯把每个步骤拍完整。</p>
+          <div class="maker-nums"><span><b>86</b>作品</span><span><b>4.2万</b>关注</span></div>
+        </article>
+        <article class="maker-card js-maker" data-name="棉线小院" data-field="布艺 / 零浪费生活" data-bio="服装设计出身，如今专做剩余布料的小物。她说每一块布头都有想去的形状，只是需要有人帮它一把。">
+          <div class="maker-avatar" style="background:linear-gradient(135deg,#7c8b6b,#5f6e50)">棉</div>
+          <h3>棉线小院</h3>
+          <div class="field">布艺 / 零浪费生活</div>
+          <p class="bio">服装设计出身，如今专做剩余布料的小物，主张「布头也有去处」。</p>
+          <div class="maker-nums"><span><b>112</b>作品</span><span><b>3.8万</b>关注</span></div>
+        </article>
+        <article class="maker-card js-maker" data-name="泥与火工作室" data-field="陶艺 / 器物美学" data-bio="两人小工作室，一人拉坯一人烧窑。视频里很少讲话，多为手部特写与窑火声，适合深夜慢慢看。">
+          <div class="maker-avatar" style="background:linear-gradient(135deg,#c97a2b,#a25a16)">陶</div>
+          <h3>泥与火工作室</h3>
+          <div class="field">陶艺 / 器物美学</div>
+          <p class="bio">两人小工作室，一人拉坯一人烧窑，视频以手部特写与窑火声为主。</p>
+          <div class="maker-nums"><span><b>64</b>作品</span><span><b>5.1万</b>关注</span></div>
+        </article>
+        <article class="maker-card js-maker" data-name="拾光市集" data-field="市集 / 摊主故事" data-bio="跑了六年市集，认识几乎所有常驻摊主。她的镜头更像聊天，把摊主们不好意思说的收入与犹豫都记录了下来。">
+          <div class="maker-avatar" style="background:linear-gradient(135deg,#8a5a3b,#b98b58)">拾</div>
+          <h3>拾光市集</h3>
+          <div class="field">市集 / 摊主故事</div>
+          <p class="bio">跑了六年市集，认识几乎所有常驻摊主，镜头更像一场聊天。</p>
+          <div class="maker-nums"><span><b>73</b>作品</span><span><b>2.9万</b>关注</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 作品墙 ================= -->
+  <section class="wall-section" id="wall">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Gallery</span>
+        <h2>作品墙 · 社区同好的手作瞬间</h2>
+        <p>来自投稿与线上活动的作品影像。尺寸不一，手艺各有脾气，欢迎你也上传自己的作品。</p>
+      </div>
+      <div class="wall">
+        <figure class="wall-item w2t">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 640'%3E%3Crect width='480' height='640' fill='%23e6d6b9'/%3E%3Crect x='80' y='140' width='320' height='330' rx='10' fill='%238a5a3b' opacity='.8'/%3E%3Crect x='110' y='180' width='260' height='26' rx='6' fill='%23f3e3c8' opacity='.8'/%3E%3Crect x='110' y='236' width='180' height='20' rx='6' fill='%23f3e3c8' opacity='.55'/%3E%3Ccircle cx='330' cy='420' r='56' fill='%237c8b6b' opacity='.85'/%3E%3C/svg%3E" alt="手作原木边几的成品陈列">
+          <figcaption class="cap">原木边几 · @小满的手作间</figcaption>
+        </figure>
+        <figure class="wall-item w2">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 320'%3E%3Crect width='480' height='320' fill='%23dfe5d8'/%3E%3Ccircle cx='140' cy='160' r='62' fill='%23c97a2b' opacity='.8'/%3E%3Ccircle cx='140' cy='160' r='32' fill='%23f6f1e7'/%3E%3Crect x='250' y='80' width='150' height='160' rx='12' fill='%237c8b6b' opacity='.75'/%3E%3C/svg%3E" alt="手捏陶杯与麻布餐垫的组合">
+          <figcaption class="cap">手捏陶杯 · @山上陶舍</figcaption>
+        </figure>
+        <figure class="wall-item w2">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 320'%3E%3Crect width='480' height='320' fill='%23f0e3cd'/%3E%3Cg stroke='%23a25a16' stroke-width='8' opacity='.55'%3E%3Cpath d='M80 60 v200 M180 60 v200 M280 60 v200 M380 60 v200'/%3E%3C/g%3E%3Crect x='100' y='200' width='280' height='60' rx='8' fill='%23c97a2b' opacity='.7'/%3E%3C/svg%3E" alt="棉麻桌旗的纹理细节">
+          <figcaption class="cap">棉麻桌旗 · @一块布工作室</figcaption>
+        </figure>
+        <figure class="wall-item w1">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Crect width='320' height='320' fill='%23e9dcc4'/%3E%3Ccircle cx='160' cy='160' r='86' fill='%238a5a3b' opacity='.7'/%3E%3Ccircle cx='160' cy='160' r='40' fill='%23f6f1e7' opacity='.9'/%3E%3C/svg%3E" alt="榉木圆盘的手工车削成品">
+          <figcaption class="cap">榉木圆盘</figcaption>
+        </figure>
+        <figure class="wall-item w1">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Crect width='320' height='320' fill='%23cfd8c2'/%3E%3Cpath d='M60 240 L160 80 L260 240 Z' fill='%237c8b6b' opacity='.8'/%3E%3Crect x='120' y='240' width='80' height='20' rx='6' fill='%238a5a3b' opacity='.8'/%3E%3C/svg%3E" alt="干花与旧玻璃瓶的插花小景">
+          <figcaption class="cap">干花小景</figcaption>
+        </figure>
+        <figure class="wall-item w2">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 320'%3E%3Crect width='480' height='320' fill='%23dcd3c3'/%3E%3Cpath d='M40 240 q120 -140 240 0 t160 0' stroke='%23c97a2b' stroke-width='10' fill='none' opacity='.7'/%3E%3Ccircle cx='120' cy='90' r='36' fill='%237c8b6b' opacity='.8'/%3E%3C/svg%3E" alt="手工编织挂毯的墙面展示">
+          <figcaption class="cap">编织挂毯 · @晚风手作</figcaption>
+        </figure>
+        <figure class="wall-item w2">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 320'%3E%3Crect width='480' height='320' fill='%23f3e6ce'/%3E%3Crect x='100' y='70' width='280' height='180' rx='10' fill='%23b98b58' opacity='.75'/%3E%3Crect x='130' y='110' width='220' height='16' rx='5' fill='%23f6f1e7' opacity='.8'/%3E%3Crect x='130' y='146' width='140' height='14' rx='5' fill='%23f6f1e7' opacity='.55'/%3E%3C/svg%3E" alt="旧书页改造的灯罩作品">
+          <figcaption class="cap">旧书灯罩 · @纸间计划</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 故事 + 评价 ================= -->
+  <section id="story">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Notes</span>
+        <h2>幕后随笔 · 镜头之外的那些晚上</h2>
+        <p>视频之外，我们也写点字。记录拍摄时没说出口的部分，和一些不完美但真实的选择。</p>
+      </div>
+      <div class="story-grid">
+        <article class="story-card">
+          <h3>拍砸的那一期，后来成了最多人收藏的一集</h3>
+          <p>那天的光线一直不对，木蜡油涂到第三遍还是花了。我们本来打算整段删掉，最后决定把失败的部分留在片子里。发布后很多人在评论区说，看见自己第一次做木工的样子。原来把「做不好」也拍下来，是有人需要的。</p>
+          <div class="by"><span class="avatar" style="background:#8a5a3b">阿</span>阿木 · 2025年9月</div>
+        </article>
+        <article class="story-card">
+          <h3>市集散场以后，摊主们坐在马路牙子上分一碗面</h3>
+          <p>那天的记录片拍了十三个小时，最动人的一段不在摊位上。收摊后大家把剩下的饼干和一瓶汽水摆在地上，聊今年是不是还继续做。没有谁会给出答案，但第二天早上六点，他们又都出现在原来的位置。</p>
+          <div class="by"><span class="avatar" style="background:#c97a2b">拾</span>拾光市集 · 2025年8月</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="review-section" id="review">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Community</span>
+        <h2>同好们怎么说</h2>
+        <p>来自社区的真实留言，来自不同阶段的手作人。我们不删差评，只在必要时回复。</p>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:#a25a16">周</span>
+            <div><div class="rn">周末磨木头</div><div class="rm">关注 1 年 · 木作爱好者</div></div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>跟着「旧木箱改造」那集做了第一件成品，虽然缝隙还是有点大，但放家里被家人夸了。教程真的是把步骤拆到不能再细。</p>
+          <div class="review-foot">2025-09-20 · 来自影像集</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:#7c8b6b">布</span>
+            <div><div class="rn">布头收集癖</div><div class="rm">关注 2 年 · 布艺创作者</div></div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>棉线小院的配色课反复看了四遍。以前只知道买好看的布，现在会先翻一遍自己的布头箱再决定买不买。</p>
+          <div class="review-foot">2025-09-16 · 来自专题</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:#c97a2b">陶</span>
+            <div><div class="rn">捏泥巴的P</div><div class="rm">关注 8 个月 · 陶艺新手</div></div>
+          </div>
+          <div class="stars">★★★★☆</div>
+          <p>内容质量很稳，就是希望拉坯的机位能再多一个俯视角度，有时候真看不清手指的位置。提个小建议，整体还是很喜欢。</p>
+          <div class="review-foot">2025-09-12 · 来自影像集</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:#8a5a3b">小</span>
+            <div><div class="rn">小满的手作间</div><div class="rm">关注 1 年半 · 已投稿 3 次</div></div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>投稿流程比想象中简单，编辑会认真回复，不是复制粘贴那种。作品上墙那天我截图发给家里人了。</p>
+          <div class="review-foot">2025-09-08 · 来自作品墙</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:#b98b58">晚</span>
+            <div><div class="rn">晚风手作</div><div class="rm">关注 6 个月 · 编织爱好者</div></div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>最喜欢夜里关灯前看「关店后的十分钟」这种慢视频，没有背景音乐，只有木架子的声音。看完心里会安静下来。</p>
+          <div class="review-foot">2025-09-02 · 来自日常</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:#7c8b6b">纸</span>
+            <div><div class="rn">纸间计划</div><div class="rm">关注 3 个月 · 手工纸艺</div></div>
+          </div>
+          <div class="stars">★★★★☆</div>
+          <p>希望专题里能多讲一点成本和时间的账，对刚想摆摊的人更有用。内容本身非常用心，看得出是真做过的人拍的。</p>
+          <div class="review-foot">2025-08-28 · 来自专题</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 动态 / FAQ / 联系 ================= -->
+  <section id="contact">
+    <div class="container">
+      <div class="split">
+        <div>
+          <div class="sec-head">
+            <span class="eyebrow">Updates &amp; FAQ</span>
+            <h2>企业动态与常见问题</h2>
+            <p>品牌官方发布、内容更新与活动报名信息，都会在这里同步。</p>
+          </div>
+          <ul class="updates">
+            <li>
+              <span class="date">09-22</span>
+              <div>
+                <div class="ut">「旧木箱改造档案」更新第 6 集</div>
+                <div class="ud">本集记录抽屉滑轨的修复与替换，附常见尺寸对照表一份。</div>
+              </div>
+            </li>
+            <li>
+              <span class="date">09-15</span>
+              <div>
+                <div class="ut">秋季手作市集摊主招募开启</div>
+                <div class="ud">面向所有手作方向开放 40 个摊位，报名截止 10 月 12 日，站内可提交作品集。</div>
+              </div>
+            </li>
+            <li>
+              <span class="date">09-03</span>
+              <div>
+                <div class="ut">社区投稿通道升级，支持多图与拍摄笔记</div>
+                <div class="ud">投稿时可一并上传过程照与材料清单，编辑审阅后优先安排专题推荐。</div>
+              </div>
+            </li>
+            <li>
+              <span class="date">08-21</span>
+              <div>
+                <div class="ut">品牌年度影像册开始征稿</div>
+                <div class="ud">本年度主题为「手边」，入选作品将收录进年度纸质影像册，投稿即视为授权展示。</div>
+              </div>
+            </li>
+          </ul>
+
+          <div style="margin-top:34px">
+            <details class="faq">
+              <summary>我不是专业手作人，也可以投稿吗？</summary>
+              <div class="faq-body">当然可以。我们更在意过程是否真实、记录是否完整，而不是成品有多精致。新手第一次失败的经历，往往比完美作品更有说服力。</div>
+            </details>
+            <details class="faq">
+              <summary>投稿后多久会有回复？</summary>
+              <div class="faq-body">一般在七个工作日内给出初审意见。若当次未通过，我们会附上具体建议，你可以在修改后再次提交，没有次数限制。</div>
+            </details>
+            <details class="faq">
+              <summary>视频内容可以转载吗？</summary>
+              <div class="faq-body">洞洞杂货铺发布的影像均为原创正版内容，欢迎在注明作者与出处的前提下分享链接；如需整段搬运或二次剪辑，请先通过下方邮箱取得书面授权。</div>
+            </details>
+            <details class="faq">
+              <summary>如何参加线下市集？</summary>
+              <div class="faq-body">每季一次招募，通常在活动前一个月开放报名。需要提交作品照片、材料说明与摊位设想，审核通过后会收到摊主手册。</div>
+            </details>
+            <details class="faq">
+              <summary>影像里使用的工具在哪里可以买到？</summary>
+              <div class="faq-body">我们不做工具销售，但在每集视频的简介区会列出所用工具与替代方案，供大家按需选择。部分合作品牌会在页面下方展示。</div>
+            </details>
+            <details class="faq">
+              <summary>可以到店参观或拍摄吗？</summary>
+              <div class="faq-body">杂货铺工作日白天对外开放，欢迎来坐。如需拍摄取材，请提前三天邮件预约，我们会协调场地与人员。</div>
+            </details>
+          </div>
+        </div>
+
+        <aside class="contact-card">
+          <h3>来找我们聊聊</h3>
+          <p>无论是投稿、合作、采访还是单纯想说说你最近做的东西，都欢迎写封信。我们尽量在三个工作日内回复每一封。</p>
+          <div class="contact-list">
+            <div><b>投稿邮箱</b><span>story@dongdong-zahuo.example</span></div>
+            <div><b>合作洽谈</b><span>hello@dongdong-zahuo.example</span></div>
+            <div><b>店铺地址</b><span>老城北巷 17 号 · 二层小楼</span></div>
+            <div><b>开放时间</b><span>周三至周日 11:00 – 19:00</span></div>
+          </div>
+          <button class="btn btn-primary" data-open="submit">我要投稿 / 报名市集</button>
+          <button class="btn btn-ghost" style="margin-top:10px;width:100%;justify-content:center;color:#f6f1e7;border-color:#f6f1e7" data-open="feedback">反馈与举报</button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 合作品牌 ================= -->
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="sec-head" style="text-align:center;margin-bottom:22px">
+        <span class="eyebrow" style="justify-content:center">Partners</span>
+        <h2>一路同行的伙伴</h2>
+      </div>
+      <div class="partner-row">
+        <span class="partner">木言工具</span>
+        <span class="partner">素麻布行</span>
+        <span class="partner">陶土计划</span>
+        <span class="partner">拾光市集</span>
+        <span class="partner">慢工书店</span>
+        <span class="partner">北巷咖啡馆</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= 页脚 ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">
+          <span class="logo-mark">洞洞</span>
+          <span>洞洞杂货铺</span>
+        </div>
+        <p>洞洞杂货铺官方网站，一间以影像记录手作与杂货的小店。我们持续运营原创内容，深耕手作垂直领域，愿以真实、温暖的方式陪伴每一位热爱生活的人。</p>
+      </div>
+      <div>
+        <h4>逛一逛</h4>
+        <ul>
+          <li><a href="#focus">手作焦点</a></li>
+          <li><a href="#stream">影像集</a></li>
+          <li><a href="#feature">专题企划</a></li>
+          <li><a href="#wall">作品墙</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#makers">创作者矩阵</a></li>
+          <li><a href="#contact">企业动态</a></li>
+          <li><a href="#contact">常见问题</a></li>
+          <li><a href="#contact">投稿与合作</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联络方式</h4>
+        <ul>
+          <li>老城北巷 17 号</li>
+          <li>story@dongdong-zahuo.example</li>
+          <li>周三至周日 11:00 – 19:00</li>
+          <li>品牌官方发布 · 持续运营中</li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 洞洞杂货铺 官方网站 · 版权所有 · 内容均为原创正版</span>
+      <span>备案号占位 · 手工内容社区</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="回到顶部">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ================= 弹窗 ================= -->
+<div class="modal-mask" id="modalMask">
+  <div class="modal" id="modalBox" role="dialog" aria-modal="true"></div>
+</div>
+
+<script>
+(function(){
+  var toastEl = document.getElementById('toast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* ---- 移动端导航 ---- */
+  var burger = document.getElementById('burger');
+  var mainNav = document.getElementById('mainNav');
+  burger.addEventListener('click', function(){
+    var open = mainNav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mainNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ mainNav.classList.remove('open'); });
+  });
+
+  /* ---- 导航高亮 ---- */
+  var navLinks = Array.prototype.slice.call(mainNav.querySelectorAll('a'));
+  var sections = navLinks.map(function(a){
+    var id = a.getAttribute('href').slice(1);
+    return document.getElementById(id);
+  }).filter(Boolean);
+  function syncNav(){
+    var y = window.scrollY + 160;
+    var current = sections[0];
+    sections.forEach(function(s){ if(s.offsetTop <= y) current = s; });
+    navLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + (current ? current.id : 'top'));
+    });
+  }
+  window.addEventListener('scroll', syncNav, {passive:true});
+
+  /* ---- 搜索 ---- */
+  var searchInput = document.getElementById('searchInput');
+  var searchBtn = document.getElementById('searchBtn');
+  var searchHint = document.getElementById('searchHint');
+  var keywordPool = ['旧木箱改造','棉麻配色','拉坯定中心','手作市集','剩布杯垫','榫卯入门','干花小景','陶杯手捏','木勺打磨','编织挂毯'];
+  function doSearch(){
+    var q = (searchInput.value || '').trim();
+    if(!q){
+      searchHint.textContent = '输入关键词试试，例如：旧木箱、棉麻、市集';
+      searchHint.classList.add('show');
+      return;
+    }
+    var hit = keywordPool.filter(function(k){ return k.indexOf(q) > -1; });
+    if(hit.length){
+      searchHint.textContent = '找到 ' + hit.length + ' 组相关内容：' + hit.join('、') + '（示例结果）';
+    }else{
+      searchHint.textContent = '暂未找到「' + q + '」的直接结果，可尝试：旧木箱、剩布、陶艺、市集';
+    }
+    searchHint.classList.add('show');
+    clearTimeout(doSearch._t);
+    doSearch._t = setTimeout(function(){ searchHint.classList.remove('show'); }, 4200);
+  }
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); doSearch(); } });
+  searchInput.addEventListener('input', function(){
+    if(!searchInput.value){ searchHint.classList.remove('show'); }
+  });
+
+  /* ---- 标签筛选 ---- */
+  var filterRow = document.getElementById('filterRow');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#streamGrid .video-card'));
+  filterRow.addEventListener('click', function(e){
+    var chip = e.target.closest('.filter-chip');
+    if(!chip) return;
+    filterRow.querySelectorAll('.filter-chip').forEach(function(c){ c.classList.remove('on'); });
+    chip.classList.add('on');
+    var f = chip.getAttribute('data-filter');
+    cards.forEach(function(card){
+      var ok = f === 'all' || card.getAttribute('data-cat') === f;
+      card.style.display = ok ? '' : 'none';
+    });
+  });
+
+  /* ---- 点赞 / 收藏 ---- */
+  document.addEventListener('click', function(e){
+    var like = e.target.closest('.js-like');
+    if(like){
+      var numEl = like.querySelector('.num');
+      var base = parseInt(like.getAttribute('data-count') || '0', 10);
+      var liked = like.classList.toggle('liked');
+      like.querySelector('.ic').textContent = liked ? '♥' : '♡';
+      var n = liked ? base + 1 : base;
+      numEl.textContent = n.toLocaleString('en-US');
+      toast(liked ? '已喜欢这条内容' : '已取消喜欢');
+      return;
+    }
+    var save = e.target.closest('.js-save');
+    if(save){
+      var on = save.classList.toggle('saved');
+      save.querySelector('.ic').textContent = on ? '★' : '☆';
+      save.querySelector('.tx').textContent = on ? '已收藏' : '收藏';
+      toast(on ? '已加入收藏夹' : '已取消收藏');
+      return;
+    }
+    var share = e.target.closest('.js-share');
+    if(share){
+      openShare(share.getAttribute('data-title') || '洞洞杂货铺内容');
+      return;
+    }
+    var cmt = e.target.closest('.js-comment');
+    if(cmt){
+      openComment(cmt.getAttribute('data-title') || '这条内容');
+      return;
+    }
+    var maker = e.target.closest('.js-maker');
+    if(maker){
+      openMaker(maker);
+      return;
+    }
+    var opener = e.target.closest('[data-open]');
+    if(opener){
+      var type = opener.getAttribute('data-open');
+      if(type === 'submit') openSubmit();
+      else if(type === 'feedback') openFeedback();
+      return;
+    }
+  });
+
+  /* ---- 弹窗基础 ---- */
+  var mask = document.getElementById('modalMask');
+  var box = document.getElementById('modalBox');
+  function openModal(html){
+    box.innerHTML = html;
+    mask.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    mask.classList.remove('show');
+    box.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+  mask.addEventListener('click', function(e){ if(e.target === mask) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+  box.addEventListener('click', function(e){
+    if(e.target.closest('[data-close]')) closeModal();
+    var copier = e.target.closest('[data-copy]');
+    if(copier){
+      var link = '洞洞杂货铺 · ' + (copier.getAttribute('data-copy') || '内容');
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(function(){ toast('链接已复制'); }, function(){ toast('复制失败，请手动选择'); });
+      }else{
+        toast('当前环境不支持一键复制');
+      }
+    }
+  });
+
+  function openShare(title){
+    openModal(
+      '<h3>分享这份手作</h3>' +
+      '<p class="m-sub">《' + title + '》· 来自洞洞杂货铺官方网站</p>' +
+      '<div class="share-row">' +
+        '<button class="share-item" data-copy="' + title + '"><span class="si">微</span>微信</button>' +
+        '<button class="share-item" data-copy="' + title + '"><span class="si">博</span>微博</button>' +
+        '<button class="share-item" data-copy="' + title + '"><span class="si">Q</span>QQ</button>' +
+        '<button class="share-item" data-copy="' + title + '"><span class="si">链</span>复制</button>' +
+      '</div>' +
+      '<p class="m-sub" style="margin:16px 0 0">点击任一渠道将尝试把内容链接复制到剪贴板，你可以在对应应用中粘贴分享。</p>' +
+      '<div class="modal-actions"><button class="btn btn-ghost" data-close>关闭</button></div>'
+    );
+  }
+
+  function openComment(title){
+    openModal(
+      '<h3>说说你的想法</h3>' +
+      '<p class="m-sub">《' + title + '》· 评论将在审核后展示</p>' +
+      '<label for="cmtName">昵称</label>' +
+      '<input id="cmtName" type="text" placeholder="怎么称呼你">' +
+      '<label for="cmtText">评论内容</label>' +
+      '<textarea id="cmtText" placeholder="聊聊你的手作经验，或者提问"></textarea>' +
+      '<div class="modal-actions">' +
+        '<button class="btn btn-ghost" data-close>取消</button>' +
+        '<button class="btn btn-primary" id="cmtSend">提交评论</button>' +
+      '</div>'
+    );
+    document.getElementById('cmtSend').addEventListener('click', function(){
+      var t = document.getElementById('cmtText').value.trim();
+      var n = document.getElementById('cmtName').value.trim();
+      if(!t){ toast('请先写点内容'); return; }
+      toast((n || '同好') + '，评论已提交，感谢分享');
+      closeModal();
+    });
+  }
+
+  function openMaker(card){
+    var name = card.getAttribute('data-name');
+    var field = card.getAttribute('data-field');
+    var bio = card.getAttribute('data-bio');
+    openModal(
+      '<h3>' + name + '</h3>' +
+      '<p class="m-sub">擅长领域 · ' + field + '</p>' +
+      '<p style="font-size:14px;color:#5b5048;line-height:1.85">' + bio + '</p>' +
+      '<p style="font-size:13.5px;color:#8a5a3b;margin-top:14px;font-weight:600">代表作品已收录在影像集与作品墙中，可按标签筛选查看。</p>' +
+      '<div class="modal-actions">' +
+        '<button class="btn btn-ghost" data-close>关闭</button>' +
+        '<button class="btn btn-primary" data-copy="' + name + '">复制创作者卡片</button>' +
+      '</div>'
+    );
+  }
+
+  function openSubmit(){
+    openModal(
+      '<h3>投稿 / 报名市集</h3>' +
+      '<p class="m-sub">填写基本信息，我们会在七个工作日内回复初审意见。</p>' +
+      '<label for="sbName">昵称或工作室名称</label>' +
+      '<input id="sbName" type="text" placeholder="例如：小满的手作间">' +
+      '<label for="sbField">手作方向</label>' +
+      '<input id="sbField" type="text" placeholder="木作 / 布艺 / 陶艺 / 其他">' +
+      '<label for="sbDesc">作品与过程简述</label>' +
+      '<textarea id="sbDesc" placeholder="做了多久、用了什么材料、想投稿哪一类内容"></textarea>' +
+      '<div class="modal-actions">' +
+        '<button class="btn btn-ghost" data-close>稍后再填</button>' +
+        '<button class="btn btn-primary" id="sbSend">提交</button>' +
+      '</div>'
+    );
+    document.getElementById('sbSend').addEventListener('click', function(){
+      var n = document.getElementById('sbName').value.trim();
+      var f = document.getElementById('sbField').value.trim();
+      if(!n || !f){ toast('请至少填写昵称与手作方向'); return; }
+      toast('已收到你的投稿，编辑会尽快联系');
+      closeModal();
+    });
+  }
+
+  function openFeedback(){
+    openModal(
+      '<h3>反馈与举报</h3>' +
+      '<p class="m-sub">内容纠错、版权问题或使用建议，都可以在这里提交。</p>' +
+      '<label for="fbType">反馈类型</label>' +
+      '<input id="fbType" type="text" placeholder="例如：内容纠错 / 版权 / 功能建议">' +
+      '<label for="fbText">详细说明</label>' +
+      '<textarea id="fbText" placeholder="请描述具体情况，便于我们核实"></textarea>' +
+      '<div class="modal-actions">' +
+        '<button class="btn btn-ghost" data-close>取消</button>' +
+        '<button class="btn btn-primary" id="fbSend">提交反馈</button>' +
+      '</div>'
+    );
+    document.getElementById('fbSend').addEventListener('click', function(){
+      var t = document.getElementById('fbText').value.trim();
+      if(!t){ toast('请补充详细说明'); return; }
+      toast('反馈已记录，感谢你的帮助');
+      closeModal();
+    });
+  }
+
+  /* ---- 回到顶部 ---- */
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    toTop.classList.toggle('show', window.scrollY > 620);
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---- 首屏数据轻量滚动 ---- */
+  var stats = document.querySelectorAll('.hero-stats .stat strong');
+  var counted = false;
+  function animateStats(){
+    if(counted || !('IntersectionObserver' in window)) return;
+    counted = true;
+    stats.forEach(function(el){
+      var raw = el.textContent;
+      var target = parseInt(raw.replace(/[^0-9]/g,''), 10);
+      if(!target) return;
+      var suffix = raw.replace(/[0-9,]/g,'');
+      var start = 0, dur = 900, t0 = null;
+      function step(ts){
+        if(!t0) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        var v = Math.floor(start + (target - start) * (1 - Math.pow(1 - p, 3)));
+        el.textContent = v.toLocaleString('en-US') + suffix;
+        if(p < 1) requestAnimationFrame(step);
+        else el.textContent = raw;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting) animateStats(); });
+    }, {threshold:.4});
+    var hs = document.querySelector('.hero-stats');
+    if(hs) io.observe(hs);
+  }
+})();
+</script>
+</body>
+  </html>
